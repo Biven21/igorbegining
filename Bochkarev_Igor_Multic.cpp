@@ -21,7 +21,6 @@ void EndTitles   ();
 
 int main()
     {
-
     txCreateWindow  (1200, 700);
     txSetFillColor  (TX_WHITE);
     txRectangle     ( 10,  10, 1190, 690);
@@ -33,7 +32,6 @@ int main()
     Disembarkation   ();
     ConstructionCamp ();
     EndTitles        ();
-
 
     return 0;
     }
@@ -95,8 +93,6 @@ void HouseDraw (int x, int y, double sizeX, double sizeY, double GableUp, double
                          {ROUND (x - 76*sizeX), ROUND (y - 117*sizeY*GableUp)}, {ROUND (x - 76*sizeX), ROUND (y - 107*sizeY)}};
     txPolygon (chimney, 4);
     }
-
-
 
 void girlDraw (int x, int y, double sizeX, double sizeY, double wind)
     {
@@ -220,11 +216,11 @@ void BackGround ()
 
 void StartTitles ()
         {
-    txSetFillColor  (TX_LIGHTBLUE);
+    txSetFillColor  (RGB (0, 150, 200));
     txRectangle     ( 10,  10, 1190, 690);
 
     int x = 1;
-    while (x <= 200)
+    while (x <= 300)
         {
         txClear ();
         txSetColor (TX_BLACK, 10);
@@ -235,26 +231,26 @@ void StartTitles ()
         }
 
     x = 1;
-    while (x <= 320)
+    while (x <= 250)
         {
         txClear ();
         txSetColor (TX_BLACK, 10);
         txSelectFont ("Tahoma", 40);
-        txTextOut  (200, 100, "ÁÎ×ÊÀÐÅÂ ÔÈËÜÌ");
-        txSetColor (TX_GREEN, 100);
+        txTextOut  (300, 100, "ÁÎ×ÊÀÐÅÂ ÔÈËÜÌ");
+        txSetColor (TX_RED, 100);
         txSelectFont ("Tahoma|", 60);
         txTextOut  (x + 10, 180, " ÏÅÄÑÒÀÂËßÅÒ ");
         x ++;
         txSleep (10);
         }
-
+    txSleep (600);
     x = 1;
-    while (x <= 120)
+    while (x <= 250)
         {
         txClear ();
         txSetColor (TX_BLACK, 10);
         txSelectFont ("Tahoma", 40);
-        txTextOut  (200, 100, "Èñòîðèÿ Êîëîíèçàöèè");
+        txTextOut  (300, 100, "Èñòîðèÿ Êîëîíèçàöèè");
         txSetColor (TX_GREEN, 100);
         txSelectFont ("Tahoma|", 60);
         txTextOut  (x, 180, " Ï Î Ñ Å Ë Å Í È Å ");
@@ -262,7 +258,6 @@ void StartTitles ()
         txSleep (10);
         }
     }
-
 
 void StarShip (int x, int y, double sizeShip)
     {
