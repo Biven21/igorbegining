@@ -409,19 +409,20 @@ void ConstructionCamp ()
         txClear   ();
         Landscape ();
 
-        SunDraw (- 10 + t*4, 270 - t, 2, 1, 1, 1, 1, 1, 1, 1);
-        SunDraw (-400 + t*4, 270 - t, 2, 1, 1, 1, 1, 1, 1, 1);
+        SunDraw (-  10 + t*4.5, 270 - t,     2, 1, 1, 1, 1, 1, 1, 1);
+        SunDraw (- 400 + t*4.5, 270 - t,     2, 1, 1, 1, 1, 1, 1, 1);
+        SunDraw (-1000 + t*4,   270 - t*0.6, 2, 1, 1, 1, 1, 1, 1, 1);
+        SunDraw (-1400 + t*4,   270 - t*0.6, 2, 1, 1, 1, 1, 1, 1, 1);
 
         BoyDraw ( 50 + 0.2*t, 600 - 0.25*t, 2, 2, 1);
         BoyDraw (100 + 0.2*t, 600 - 0.4*t,  2, 2, 1);
         BoyDraw (150 + 0.2*t, 600 - 0.4*t,  2, 2, 1);
         BoyDraw (200 + 0.2*t, 600 - 0.25*t, 2, 2, 1);
 
-        BoyDraw (250 + 0.2*t, 600 - 0.25*t, 2, 2, 1);
-        BoyDraw (300 + 0.2*t, 600 - 0.4*t,  2, 2, 1);
-        BoyDraw (350 + 0.2*t, 600 - 0.4*t,  2, 2, 1);
-        BoyDraw (320 + 0.2*t, 600 - 0.25*t, 2, 2, 1);
-
+        BoyDraw (250 + 0.2*t, 600 - 0.20*t, 2, 2, 1);
+        BoyDraw (300 + 0.2*t, 600 - 0.40*t, 2, 2, 1);
+        BoyDraw (350 + 0.2*t, 600 - 0.40*t, 2, 2, 1);
+        BoyDraw (320 + 0.2*t, 600 - 0.20*t, 2, 2, 1);
 
         t++;
         txSleep (10);
@@ -430,11 +431,15 @@ void ConstructionCamp ()
         txSleep (1000);
         HouseDraw (150, 521,  1,   1,   1,    1,   1,   1);
         txSleep (1000);
-        HouseDraw (450, 621,  1,   1,   1,    1,   1,   1);
+        HouseDraw (450, 521,  1,   1,   1,    1,   1,   1);
         txSleep (1000);
         HouseDraw (650, 521,  1,   1,   1,    1,   1,   1);
         txSleep (1000);
         HouseDraw (657, 621,  1,   1,   1,    1,   1,   1);
+        txSleep (1000);
+        HouseDraw (150, 621,  1,   1,   1,    1,   1,   1);
+        txSleep (1000);
+        HouseDraw (450, 621,  1,   1,   1,    1,   1,   1);
         txSleep (1000);
 
     }
@@ -447,7 +452,9 @@ void EndTitles ()
         txClear   ();
         Landscape ();
         HouseDraw (150, 521,  1,   1,   1,    1,   1,   1);
+        HouseDraw (450, 521,  1,   1,   1,    1,   1,   1);
         HouseDraw (450, 621,  1,   1,   1,    1,   1,   1);
+        HouseDraw (150, 621,  1,   1,   1,    1,   1,   1);
         HouseDraw (650, 521,  1,   1,   1,    1,   1,   1);
         HouseDraw (657, 621,  1,   1,   1,    1,   1,   1);
 
