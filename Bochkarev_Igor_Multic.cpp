@@ -1,5 +1,15 @@
-#include "TXLib.h"
+//-----------------------------------------------------------------------------
+//@file     https://github.com/Biven21/igorbegining.git
+//
+//@date     april 2021
+//@brief    анимаци€, почти мультик, " олонизаци€".
+//          посв€щение 60 летию полета человека в космос.
+//
+//@autor    Igor Bochkarev, teacher school 175, Samara.
+//
+//-----------------------------------------------------------------------------
 
+#include "TXLib.h"
 
 void HouseDraw   (int x, int y, double sizeX, double sizeY, double GableUp, double GableX, double roofRight, double roofLeft);
 void SunDraw     (int x, int y, double size,  double sizeChet, double sizeNChet, double sizeEyse,
@@ -11,7 +21,7 @@ void TreeDraw    ();
 void BackGround  ();
 void StartTitles ();
 void StarShip    (int x, int y, double sizeShip);
-void ArrivalStarShip ();
+void ArrivalStarShip (int x);
 void Landscape   ();
 void Serenity    ();
 void Disembarkation ();
@@ -28,8 +38,9 @@ int main()
     StartTitles      ();
     txSleep          (1000);
     Serenity         ();
-    ArrivalStarShip  ();
-    Disembarkation   ();
+    Disembarkation ();
+    Solstice   ();
+    Disembarkation ();
     ConstructionCamp ();
     EndTitles        ();
 
@@ -283,20 +294,17 @@ void StarShip (int x, int y, double sizeShip)
     txPolygon (Support4, 3);
     }
 
-void ArrivalStarShip ()
+void ArrivalStarShip (int x)
     {
-    int x = 1000;
-    int y = 10;
-
-    while (x >= 100, y <= 600)
+    int t = 0;
+    while (t <= 600)
         {
         txClear   ();
         Landscape ();
-        StarShip  (x, y, 1);
-        x -= 1;
-        y += 1;
-
-        txSleep (20);
+        StarShip  (1000 - t,     10 + t, 1);
+        StarShip  (1100 - t / 2, 10 + t, 1);
+        t ++;
+        txSleep (x);
         }
     }
 void Landscape ()
@@ -363,40 +371,35 @@ void Disembarkation ()
     {
     int x = 250;
     int y = 550;
-    int t = 0;
-    while (x <= 500, y >= 300, t <= 20)
+    int shovel = 0;
+    ArrivalStarShip (5);
+    while (x <= 400, y >= 500, shovel <= 15)
         {
-        BoyDraw   (x, y, 2, 2, t % 2 * 2 - 1);
+        BoyDraw   (x,      y,      2,   2,   shovel % 2 * 2 - 1);
         girlDraw  (x + 10, y - 50, 2.5, 2.5, 2);
         StarShip  (200, 500, 1.5);
-        //Landscape ();
+
         x += 30;
         y -=  2;
-        t ++;
+        shovel ++;
         txSleep (500);
         }
     }
 
 void Solstice ()
     {
-    int x =  40;
-    int y = 370;
-    while (x <= 1100, y >= 20)
+    int t = 0;
+    while (t < 370)
         {
-        txSetFillColor (TX_WHITE);
         txClear ();
-
-        BackGround  ();
+        txSetFillColor (TX_WHITE);
         Landscape ();
-        StarShip    (730, 500, 1);
 
-        SunDraw   (x,        y, 2, 1, 1, 1, 1, 1, 1, 1);
-        BoyDraw   (x + 30, 500, 3, 3, x/10 % 2 * 2 - 1);
+        SunDraw (-  10 + t*4.5, 270 - t, 2, 1, 1, 1, 1, 1, 1, 1);
+        SunDraw (- 400 + t*4.5, 270 - t, 2, 1, 1, 1, 1, 1, 1, 1);
 
-        x = x + 1;
-        y -= 1;
-
-        txSleep (3);
+        t ++;
+        txSleep (10);
         }
     }
 
@@ -426,22 +429,21 @@ void ConstructionCamp ()
 
         t++;
         txSleep (10);
-
         }
-        txSleep (1000);
-        HouseDraw (150, 521,  1,   1,   1,    1,   1,   1);
-        txSleep (1000);
-        HouseDraw (450, 521,  1,   1,   1,    1,   1,   1);
-        txSleep (1000);
-        HouseDraw (650, 521,  1,   1,   1,    1,   1,   1);
-        txSleep (1000);
-        HouseDraw (657, 621,  1,   1,   1,    1,   1,   1);
-        txSleep (1000);
-        HouseDraw (150, 621,  1,   1,   1,    1,   1,   1);
-        txSleep (1000);
-        HouseDraw (450, 621,  1,   1,   1,    1,   1,   1);
-        txSleep (1000);
 
+    txSleep (1000);
+    HouseDraw (150, 521,  1,   1,   1,    1,   1,   1);
+    txSleep (1000);
+    HouseDraw (450, 521,  1,   1,   1,    1,   1,   1);
+    txSleep (1000);
+    HouseDraw (650, 521,  1,   1,   1,    1,   1,   1);
+    txSleep (1000);
+    HouseDraw (657, 621,  1,   1,   1,    1,   1,   1);
+    txSleep (1000);
+    HouseDraw (150, 621,  1,   1,   1,    1,   1,   1);
+    txSleep (1000);
+    HouseDraw (450, 621,  1,   1,   1,    1,   1,   1);
+    txSleep (1000);
     }
 
 void EndTitles ()
