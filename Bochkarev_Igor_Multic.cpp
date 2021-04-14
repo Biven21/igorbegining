@@ -17,7 +17,7 @@ void SunDraw     (int x, int y, double size,  double sizeChet, double sizeNChet,
 void girlDraw    (int x, int y, double sizeX, double sizeY, double wind);
 void BoyDraw     (int x, int y, double sizeX, double sizeY, int shovelUp);
 void FirDraw     (int x, int y, double sizeX, double sizeY, double Wind);
-void TreeDraw    ();
+void TreeDraw    (int x, int y, double sizeX, double sizeY);
 void BackGround  ();
 void StartTitles ();
 void StarShip    (int x, int y, double sizeShip);
@@ -28,6 +28,9 @@ void Disembarkation ();
 void Solstice    ();
 void ConstructionCamp ();
 void EndTitles   ();
+void PlantingGarden ();
+void Housbilding (int x);
+void Village ();
 
 int main()
     {
@@ -35,14 +38,16 @@ int main()
     txSetFillColor  (TX_WHITE);
     txRectangle     ( 10,  10, 1190, 690);
 
-    StartTitles      ();
-    txSleep          (1000);
-    Serenity         ();
-    Disembarkation ();
-    Solstice   ();
-    Disembarkation ();
-    ConstructionCamp ();
-    EndTitles        ();
+    //StartTitles ();
+    //txSleep (1000);
+    //Serenity ();
+    //Disembarkation ();
+    //Solstice ();
+    //Disembarkation ();
+    //ConstructionCamp ();
+    PlantingGarden ();
+    TreeDraw (50, 20, 2, 2);
+    EndTitles ();
 
     return 0;
     }
@@ -161,7 +166,6 @@ void FirDraw (int x, int y, double sizeX, double sizeY, double Wind)
     POINT Fir1Line [4] = {{ROUND (x - 22*sizeX), ROUND (y + 42*sizeY)}, {ROUND (x + 19*sizeX), ROUND (y + 42*sizeY)},
                           {ROUND (x +  7*sizeX), ROUND (y + 26*sizeY)}, {ROUND (x -  7*sizeX), ROUND (y + 26*sizeY)}};
     txPolygon (Fir1Line, 4);
-    //x=292, y=277
 
     POINT Fir2Line [4] = {{ROUND (x - 16*sizeX),          ROUND (y + 26*sizeY)},
                           {ROUND (x + 14*sizeX),          ROUND (y + 26*sizeY)},
@@ -175,18 +179,18 @@ void FirDraw (int x, int y, double sizeX, double sizeY, double Wind)
     txPolygon  (Fir3Line, 3);
     }
 
-void TreeDraw ()
+void TreeDraw (int x, int y, double sizeX, double sizeY)
     {
-    txSetColor  (TX_BROWN, 4);
-    txLine      (344, 323, 344, 293);
+    txSetColor  (TX_BROWN, 5);
+    txLine      (x, y, x, y - 30*sizeY);     // x = 344; y = 323
 
-    txSetColor  (TX_GREEN, 2);
-    txLine      (335, 303, 328, 303);
-    txLine      (344, 315, 353, 303);
-    txLine      (353, 303, 362, 300);
-    txLine      (344, 310, 335, 303);
-    txLine      (344, 304, 353, 286);
-    txLine      (340, 284, 344, 293);
+    txSetColor  (TX_BROWN, 2);
+    txLine      (x - 9*sizeX, y - 20*sizeY, x - 16*sizeX, y*sizeY - 20);
+    txLine      (x,           y -  8*sizeY, x +  9*sizeX, y*sizeY - 20);
+    txLine      (x + 9*sizeX, y - 20*sizeY, x + 18*sizeX, y*sizeY - 23);
+    txLine      (x,           y - 13*sizeY, x + 11*sizeX, y*sizeY - 20); //344, 310, 335, 303);
+    txLine      (x,           y - 19*sizeY, x +  9*sizeX, y*sizeY - 37); //344, 304, 353, 286);
+    txLine      (x - 4*sizeX, y - 39*sizeY, x,            y*sizeY - 30); //340, 284, 344, 293);
     }
 
 void BackGround ()
@@ -213,7 +217,7 @@ void BackGround ()
     FirDraw   (660,  80, 0.5, 1, 2);
     FirDraw   (680,  80, 0.5, 1, 2);
 
-    TreeDraw  ();
+    TreeDraw  (300, 300, 1, 1);
 
     SunDraw   (990, 260, 3,   2, 3, 1,   1, 1,   1, 1);
     SunDraw   ( 40,  70, 2,   1, 1, 1,   1, 1,   1, 1);
@@ -375,9 +379,9 @@ void Disembarkation ()
     ArrivalStarShip (5);
     while (x <= 400, y >= 500, shovel <= 15)
         {
-        BoyDraw   (x,      y,      2,   2,   shovel % 2 * 2 - 1);
-        girlDraw  (x + 10, y - 50, 2.5, 2.5, 2);
-        StarShip  (200, 500, 1.5);
+        BoyDraw  (x,      y,      2,   2,   shovel % 2 * 2 - 1);
+        girlDraw (x + 10, y - 50, 2.5, 2.5, 2);
+        StarShip (200, 500, 1.5);
 
         x += 30;
         y -=  2;
@@ -430,20 +434,7 @@ void ConstructionCamp ()
         t++;
         txSleep (10);
         }
-
-    txSleep (1000);
-    HouseDraw (150, 521,  1,   1,   1,    1,   1,   1);
-    txSleep (1000);
-    HouseDraw (450, 521,  1,   1,   1,    1,   1,   1);
-    txSleep (1000);
-    HouseDraw (650, 521,  1,   1,   1,    1,   1,   1);
-    txSleep (1000);
-    HouseDraw (657, 621,  1,   1,   1,    1,   1,   1);
-    txSleep (1000);
-    HouseDraw (150, 621,  1,   1,   1,    1,   1,   1);
-    txSleep (1000);
-    HouseDraw (450, 621,  1,   1,   1,    1,   1,   1);
-    txSleep (1000);
+    Housbilding (1000);
     }
 
 void EndTitles ()
@@ -471,4 +462,57 @@ void EndTitles ()
         txSleep (10);
         }
 
+    }
+
+void Housbilding (int x)
+    {
+    txSleep (x);
+    HouseDraw (150, 521,  1,   1,   1,    1,   1,   1);
+    txSleep (x);
+    HouseDraw (450, 521,  1,   1,   1,    1,   1,   1);
+    txSleep (x);
+    HouseDraw (650, 521,  1,   1,   1,    1,   1,   1);
+    txSleep (x);
+    HouseDraw (657, 621,  1,   1,   1,    1,   1,   1);
+    txSleep (x);
+    HouseDraw (150, 621,  1,   1,   1,    1,   1,   1);
+    txSleep (x);
+    HouseDraw (450, 621,  1,   1,   1,    1,   1,   1);
+    txSleep (x);
+    }
+
+void Village ()
+    {
+    HouseDraw (150, 521,  1,   1,   1,    1,   1,   1);
+    HouseDraw (450, 521,  1,   1,   1,    1,   1,   1);
+    HouseDraw (650, 521,  1,   1,   1,    1,   1,   1);
+    HouseDraw (657, 621,  1,   1,   1,    1,   1,   1);
+    HouseDraw (150, 621,  1,   1,   1,    1,   1,   1);
+    HouseDraw (450, 621,  1,   1,   1,    1,   1,   1);
+    }
+
+void PlantingGarden ()
+    {
+    int t = 0;
+    while (t < 300)
+        {
+        txClear   ();
+        Landscape ();
+        Village   ();
+
+        BoyDraw  (750 + 0.1*t, 600 - 0.41*t, 2,   2,   1);
+        girlDraw (770 + 0.1*t, 600 - 0.41*t, 2.5, 2.5, 2);
+
+        BoyDraw  (850 + 0.2*t, 600 - 0.51*t, 2,   2,   1);
+        girlDraw (870 + 0.2*t, 600 - 0.51*t, 2.5, 2.5, 2);
+
+        BoyDraw  (950 + 0.3*t, 600 - 0.31*t, 2,   2,   1);
+        girlDraw (970 + 0.3*t, 600 - 0.31*t, 2.5, 2.5, 2);
+
+        t++;
+        txSleep (10);
+        }
+    //t = 0;
+    TreeDraw (750, 600, 2, 2);
+    TreeDraw (850, 600, 2, 2);
     }
