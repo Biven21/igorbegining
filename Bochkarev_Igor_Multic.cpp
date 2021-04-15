@@ -31,6 +31,7 @@ void EndTitles   ();
 void PlantingGarden ();
 void Housbilding (int x);
 void Village ();
+void GardenStart ();
 
 int main()
     {
@@ -179,18 +180,19 @@ void FirDraw (int x, int y, double sizeX, double sizeY, double Wind)
     txPolygon  (Fir3Line, 3);
     }
 
-void TreeDraw (int x, int y)//, double sizeX, double sizeY
+void TreeDraw (int x, int y, double sizeX, double sizeY)
     {
-    txSetColor  (TX_BROWN, 4);
-    txLine      (x, y, x, y - 30);
+    txSetColor (TX_BROWN, 4);
+    txLine   (x, y, x, y*sizeY - 30);
+    txCircle (x, y - 30*sizeY, 3);
 
     txSetColor  (TX_BROWN, 2);
-    txLine      (x,     y -  8, x +  9, y - 20);
-    txLine      (x + 9, y - 20, x + 18, y - 23);
-    txLine      (x,     y - 13, x -  9, y - 20);
-    txLine      (x - 9, y - 20, x - 16, y - 20);
-    txLine      (x,     y - 20, x +  9, y - 37);
-    txLine      (x,     y - 30, x -  4, y - 39);
+    txLine      (x,           y -  8*sizeY, x +  9*sizeX, y - 20*sizeY);
+    txLine      (x + 9*sizeX, y - 20*sizeY, x + 18*sizeX, y - 23*sizeY);
+    txLine      (x,           y - 13*sizeY, x -  9*sizeX, y - 20*sizeY);
+    txLine      (x - 9*sizeX, y - 20*sizeY, x - 16*sizeX, y - 20*sizeY);
+    txLine      (x,           y - 20*sizeY, x +  9*sizeX, y - 37*sizeY);
+    txLine      (x,           y - 30*sizeY, x -  4*sizeX, y - 39*sizeY);
     }
 
 void BackGround ()
@@ -217,7 +219,7 @@ void BackGround ()
     FirDraw   (660,  80, 0.5, 1, 2);
     FirDraw   (680,  80, 0.5, 1, 2);
 
-    TreeDraw  (300, 300);
+    TreeDraw  (300, 300, 1, 1);
 
     SunDraw   (990, 260, 3,   2, 3, 1,   1, 1,   1, 1);
     SunDraw   ( 40,  70, 2,   1, 1, 1,   1, 1,   1, 1);
@@ -508,15 +510,17 @@ void PlantingGarden ()
         t++;
         txSleep (10);
         }
-    //t = 0;
-    TreeDraw (750, 600);
-    txSleep (1000);
-    TreeDraw (850, 600);
-    txSleep (500);
-    TreeDraw (900, 600);
-    txSleep (500);
-    TreeDraw (1000, 600);
-    txSleep (500);
-    TreeDraw (900, 500);
-    txSleep (1000);
+    GardenStart ();
+    }
+void GardenStart ()
+    {
+    TreeDraw (750,  600, 1, 1); txSleep (1000);
+    TreeDraw (850,  600, 1, 1); txSleep (500);
+    TreeDraw (900,  600, 1, 1); txSleep (500);
+    TreeDraw (1000, 600, 1, 1); txSleep (500);
+
+    TreeDraw (900,  500, 1, 1); txSleep (1000);
+    TreeDraw (850,  500, 1, 1); txSleep (1000);
+    TreeDraw (750,  500, 1, 1); txSleep (1000);
+    TreeDraw (1000, 500, 1, 1); txSleep (1000);
     }
