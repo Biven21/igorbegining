@@ -17,7 +17,7 @@ void SunDraw     (int x, int y, double size,  double sizeChet, double sizeNChet,
 void girlDraw    (int x, int y, double sizeX, double sizeY, double wind);
 void BoyDraw     (int x, int y, double sizeX, double sizeY, int shovelUp);
 void FirDraw     (int x, int y, double sizeX, double sizeY, double Wind);
-void TreeDraw    (int x, int y, double sizeX, double sizeY);
+void TreeDraw    (int x, int y); //, double sizeX, double sizeY
 void BackGround  ();
 void StartTitles ();
 void StarShip    (int x, int y, double sizeShip);
@@ -46,7 +46,7 @@ int main()
     //Disembarkation ();
     //ConstructionCamp ();
     PlantingGarden ();
-    TreeDraw (50, 20, 2, 2);
+
     EndTitles ();
 
     return 0;
@@ -179,18 +179,18 @@ void FirDraw (int x, int y, double sizeX, double sizeY, double Wind)
     txPolygon  (Fir3Line, 3);
     }
 
-void TreeDraw (int x, int y, double sizeX, double sizeY)
+void TreeDraw (int x, int y)//, double sizeX, double sizeY
     {
-    txSetColor  (TX_BROWN, 5);
-    txLine      (x, y, x, y - 30*sizeY);     // x = 344; y = 323
+    txSetColor  (TX_BROWN, 4);
+    txLine      (x, y, x, y - 30);
 
     txSetColor  (TX_BROWN, 2);
-    txLine      (x - 9*sizeX, y - 20*sizeY, x - 16*sizeX, y*sizeY - 20);
-    txLine      (x,           y -  8*sizeY, x +  9*sizeX, y*sizeY - 20);
-    txLine      (x + 9*sizeX, y - 20*sizeY, x + 18*sizeX, y*sizeY - 23);
-    txLine      (x,           y - 13*sizeY, x + 11*sizeX, y*sizeY - 20); //344, 310, 335, 303);
-    txLine      (x,           y - 19*sizeY, x +  9*sizeX, y*sizeY - 37); //344, 304, 353, 286);
-    txLine      (x - 4*sizeX, y - 39*sizeY, x,            y*sizeY - 30); //340, 284, 344, 293);
+    txLine      (x,     y -  8, x +  9, y - 20);
+    txLine      (x + 9, y - 20, x + 18, y - 23);
+    txLine      (x,     y - 13, x -  9, y - 20);
+    txLine      (x - 9, y - 20, x - 16, y - 20);
+    txLine      (x,     y - 20, x +  9, y - 37);
+    txLine      (x,     y - 30, x -  4, y - 39);
     }
 
 void BackGround ()
@@ -217,7 +217,7 @@ void BackGround ()
     FirDraw   (660,  80, 0.5, 1, 2);
     FirDraw   (680,  80, 0.5, 1, 2);
 
-    TreeDraw  (300, 300, 1, 1);
+    TreeDraw  (300, 300);
 
     SunDraw   (990, 260, 3,   2, 3, 1,   1, 1,   1, 1);
     SunDraw   ( 40,  70, 2,   1, 1, 1,   1, 1,   1, 1);
@@ -412,7 +412,6 @@ void ConstructionCamp ()
     double t = 0;
     while (t < 500)
         {
-
         txClear   ();
         Landscape ();
 
@@ -444,12 +443,7 @@ void EndTitles ()
         {
         txClear   ();
         Landscape ();
-        HouseDraw (150, 521,  1,   1,   1,    1,   1,   1);
-        HouseDraw (450, 521,  1,   1,   1,    1,   1,   1);
-        HouseDraw (450, 621,  1,   1,   1,    1,   1,   1);
-        HouseDraw (150, 621,  1,   1,   1,    1,   1,   1);
-        HouseDraw (650, 521,  1,   1,   1,    1,   1,   1);
-        HouseDraw (657, 621,  1,   1,   1,    1,   1,   1);
+        Village ();
 
         SunDraw   (- 10 + t*3, 70 - t*0.1, 2, 1, 1, 1, 1, 1, 1, 1);
         SunDraw   (-400 + t*3, 70 - t*0.1, 2, 1, 1, 1, 1, 1, 1, 1);
@@ -458,10 +452,9 @@ void EndTitles ()
         txSelectFont ("Tahoma", 40);
         txTextOut  (1200 - t*3, 100, "опнднкфемхе якедсер");
 
-        t = t + 1;
+        t ++;
         txSleep (10);
         }
-
     }
 
 void Housbilding (int x)
@@ -494,25 +487,36 @@ void Village ()
 void PlantingGarden ()
     {
     int t = 0;
-    while (t < 300)
+    while (t < 500)
         {
         txClear   ();
         Landscape ();
         Village   ();
 
-        BoyDraw  (750 + 0.1*t, 600 - 0.41*t, 2,   2,   1);
-        girlDraw (770 + 0.1*t, 600 - 0.41*t, 2.5, 2.5, 2);
+        BoyDraw  (750 + 0.01*t, 700 - 0.41*t, 2,   2,   1);
+        girlDraw (770 + 0.01*t, 700 - 0.41*t, 2.5, 2.5, 2);
 
-        BoyDraw  (850 + 0.2*t, 600 - 0.51*t, 2,   2,   1);
-        girlDraw (870 + 0.2*t, 600 - 0.51*t, 2.5, 2.5, 2);
+        BoyDraw  (830 + 0.2*t, 700 - 0.51*t, 2,   2,   1);
+        girlDraw (850 + 0.2*t, 700 - 0.51*t, 2.5, 2.5, 2);
 
-        BoyDraw  (950 + 0.3*t, 600 - 0.31*t, 2,   2,   1);
-        girlDraw (970 + 0.3*t, 600 - 0.31*t, 2.5, 2.5, 2);
+        BoyDraw  (900 + 0.3*t, 700 - 0.31*t, 2,   2,   1);
+        girlDraw (930 + 0.3*t, 700 - 0.31*t, 2.5, 2.5, 2);
+
+        BoyDraw  (950 + 0.3*t, 700 - 0.21*t, 2,   2,   1);
+        girlDraw (970 + 0.3*t, 700 - 0.21*t, 2.5, 2.5, 2);
 
         t++;
         txSleep (10);
         }
     //t = 0;
-    TreeDraw (750, 600, 2, 2);
-    TreeDraw (850, 600, 2, 2);
+    TreeDraw (750, 600);
+    txSleep (1000);
+    TreeDraw (850, 600);
+    txSleep (500);
+    TreeDraw (900, 600);
+    txSleep (500);
+    TreeDraw (1000, 600);
+    txSleep (500);
+    TreeDraw (900, 500);
+    txSleep (1000);
     }
