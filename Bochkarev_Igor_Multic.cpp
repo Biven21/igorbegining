@@ -40,9 +40,9 @@ int main()
     txSetFillColor  (TX_WHITE);
     txRectangle     ( 10,  10, 1190, 690);
 
-    StartTitles ();
-    txSleep (1000);
-    Serenity ();
+    //StartTitles ();
+    //txSleep (1000);
+    //Serenity ();
     Disembarkation ();
     Solstice ();
     Disembarkation ();
@@ -376,18 +376,16 @@ void Serenity ()
 
 void Disembarkation ()
     {
-    int x = 250;
-    int y = 550;
+    int t = 0;
     int shovel = 0;
     ArrivalStarShip (5);
-    while (x <= 400, y >= 500, shovel <= 15)
+    while (t < 300, shovel <= 15)
         {
-        BoyDraw  (x,      y,      2,   2,   shovel % 2 * 2 - 1, 10, 27);
-        girlDraw (x + 10, y - 50, 2.5, 2.5, 2);
+        BoyDraw  (250 + t,      550 - t / 10,      2,   2,   shovel % 2 * 2 - 1, 6, 1);
+        girlDraw (250 + t + 10, 550 - t / 10 - 50, 2.5, 2.5, 2);
         StarShip (200, 500, 1.5);
 
-        x += 30;
-        y -=  2;
+        t += 30;
         shovel ++;
         txSleep (500);
         }
@@ -424,15 +422,15 @@ void ConstructionCamp ()
         SunDraw (-1000 + t*4,   270 - t*0.6, 2, 1, 1, 1, 1, 1, 1, 1);
         SunDraw (-1400 + t*4,   270 - t*0.6, 2, 1, 1, 1, 1, 1, 1, 1);
 
-        BoyDraw ( 50 + 0.2*t, 600 - 0.25*t, 2, 2, 1, 10 - (t % 5 * 6), 27);
-        BoyDraw (100 + 0.2*t, 600 - 0.4*t,  2, 2, 1,  1, 27);
-        BoyDraw (150 + 0.2*t, 600 - 0.4*t,  2, 2, 1, 20, 27);
-        BoyDraw (200 + 0.2*t, 600 - 0.25*t, 2, 2, 1, 10, 27);
+        BoyDraw ( 50 + 0.2*t, 600 - 0.25*t, 2, 2, 1, 2 + ((t / 10) % 3) * 1, t / 10 % 3);
+        BoyDraw (100 + 0.2*t, 600 - 0.4*t,  2, 2, 1, 2 + ((t / 10) % 3) * 1, t / 10 % 3);
+        BoyDraw (150 + 0.2*t, 600 - 0.4*t,  2, 2, 1, 2 + ((t / 10) % 3) * 1, t / 10 % 3);
+        BoyDraw (200 + 0.2*t, 600 - 0.25*t, 2, 2, 1, 2 + ((t / 10) % 3) * 1, t / 10 % 3);
 
-        BoyDraw (250 + 0.2*t, 600 - 0.20*t, 2, 2, 1, 10, 27);
-        BoyDraw (300 + 0.2*t, 600 - 0.40*t, 2, 2, 1, 10, 27);
-        BoyDraw (350 + 0.2*t, 600 - 0.40*t, 2, 2, 1, 10, 27);
-        BoyDraw (320 + 0.2*t, 600 - 0.20*t, 2, 2, 1, 10, 27);
+        BoyDraw (250 + 0.2*t, 600 - 0.20*t, 2, 2, 1, 2 + ((t / 9) % 3) * 1, t / 9 % 3);
+        BoyDraw (300 + 0.2*t, 600 - 0.40*t, 2, 2, 1, 2 + ((t / 9) % 3) * 1, t / 9 % 3);
+        BoyDraw (350 + 0.2*t, 600 - 0.40*t, 2, 2, 1, 2 + ((t / 9) % 3) * 1, t / 9 % 3);
+        BoyDraw (320 + 0.2*t, 600 - 0.20*t, 2, 2, 1, 2 + ((t / 9) % 3) * 1, t / 9 % 3);
 
         t++;
         txSleep (10);
