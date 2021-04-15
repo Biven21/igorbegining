@@ -32,6 +32,7 @@ void PlantingGarden ();
 void Housbilding (int x);
 void Village ();
 void GardenStart ();
+void HeightGarden ();
 
 int main()
     {
@@ -39,13 +40,13 @@ int main()
     txSetFillColor  (TX_WHITE);
     txRectangle     ( 10,  10, 1190, 690);
 
-    //StartTitles ();
-    //txSleep (1000);
-    //Serenity ();
-    //Disembarkation ();
-    //Solstice ();
-    //Disembarkation ();
-    //ConstructionCamp ();
+    StartTitles ();
+    txSleep (1000);
+    Serenity ();
+    Disembarkation ();
+    Solstice ();
+    Disembarkation ();
+    ConstructionCamp ();
     PlantingGarden ();
 
     EndTitles ();
@@ -183,7 +184,7 @@ void FirDraw (int x, int y, double sizeX, double sizeY, double Wind)
 void TreeDraw (int x, int y, double sizeX, double sizeY)
     {
     txSetColor (TX_BROWN, 4);
-    txLine   (x, y, x, y*sizeY - 30);
+    txLine   (x, y, x, y - 30*sizeY);
     txCircle (x, y - 30*sizeY, 3);
 
     txSetColor  (TX_BROWN, 2);
@@ -496,8 +497,8 @@ void PlantingGarden ()
         Landscape ();
         Village   ();
 
-        BoyDraw  (750 + 0.01*t, 700 - 0.41*t, 2,   2,   1, 2 + ((t / 10) % 3) * 1, t / 10 % 3);
-        girlDraw (770 + 0.01*t, 700 - 0.41*t, 2.5, 2.5, 2);
+        BoyDraw  (750 + 0.01*t, 700 - 0.61*t, 2,   2,   1, 2 + ((t / 10) % 3) * 1, t / 10 % 3);
+        girlDraw (770 + 0.01*t, 700 - 0.61*t, 2.5, 2.5, 2);
 
         BoyDraw  (830 + 0.2*t, 700 - 0.51*t, 2,   2,   1, 4 + ((t / 10) % 3) * 1, t / 10 % 3);
         girlDraw (850 + 0.2*t, 700 - 0.51*t, 2.5, 2.5, 2);
@@ -512,16 +513,52 @@ void PlantingGarden ()
         txSleep (10);
         }
     GardenStart ();
+    HeightGarden ();
     }
 void GardenStart ()
     {
-    TreeDraw (750,  600, 1, 1); txSleep (1000);
+    TreeDraw (750,  600, 1, 1); txSleep (500);
     TreeDraw (850,  600, 1, 1); txSleep (500);
     TreeDraw (900,  600, 1, 1); txSleep (500);
     TreeDraw (1000, 600, 1, 1); txSleep (500);
 
-    TreeDraw (900,  500, 1, 1); txSleep (1000);
-    TreeDraw (850,  500, 1, 1); txSleep (1000);
-    TreeDraw (750,  500, 1, 1); txSleep (1000);
-    TreeDraw (1000, 500, 1, 1); txSleep (1000);
+    TreeDraw (900,  550, 1, 1); txSleep (500);
+    TreeDraw (850,  550, 1, 1); txSleep (500);
+    TreeDraw (750,  550, 1, 1); txSleep (500);
+    TreeDraw (1000, 550, 1, 1); txSleep (500);
+
+    TreeDraw (900,  500, 1, 1); txSleep (500);
+    TreeDraw (850,  500, 1, 1); txSleep (500);
+    TreeDraw (750,  500, 1, 1); txSleep (500);
+    TreeDraw (1000, 500, 1, 1); txSleep (500);
     }
+
+void HeightGarden ()
+    {
+    int t = 0;
+    while (t < 100)
+        {
+        txClear ();
+        Landscape ();
+        Village   ();
+
+        TreeDraw (750,  600, 1 + t * 0.02, 1 + t * 0.02);
+        TreeDraw (850,  600, 1 + t * 0.02, 1 + t * 0.02);
+        TreeDraw (900,  600, 1 + t * 0.02, 1 + t * 0.02);
+        TreeDraw (1000, 600, 1 + t * 0.02, 1 + t * 0.02);
+
+        TreeDraw (900,  550, 1 + t * 0.02, 1 + t * 0.02);
+        TreeDraw (850,  550, 1 + t * 0.02, 1 + t * 0.02);
+        TreeDraw (750,  550, 1 + t * 0.02, 1 + t * 0.02);
+        TreeDraw (1000, 550, 1 + t * 0.02, 1 + t * 0.02);
+
+        TreeDraw (900,  500, 1 + t * 0.02, 1 + t * 0.02);
+        TreeDraw (850,  500, 1 + t * 0.02, 1 + t * 0.02);
+        TreeDraw (750,  500, 1 + t * 0.02, 1 + t * 0.02);
+        TreeDraw (1000, 500, 1 + t * 0.02, 1 + t * 0.02);
+
+        t ++;
+        txSleep (10);
+        }
+    }
+
