@@ -185,15 +185,29 @@ void TreeDraw (int x, int y, double sizeX, double sizeY)
     {
     txSetColor (TX_BROWN, 4);
     txLine   (x, y, x, y - 30*sizeY);
-    txCircle (x, y - 30*sizeY, 3);
+    txCircle (x, y - 30*sizeY, 3*sizeX);
 
     txSetColor  (TX_BROWN, 2);
-    txLine      (x,           y -  8*sizeY, x +  9*sizeX, y - 20*sizeY);
-    txLine      (x + 9*sizeX, y - 20*sizeY, x + 18*sizeX, y - 23*sizeY);
-    txLine      (x,           y - 13*sizeY, x -  9*sizeX, y - 20*sizeY);
-    txLine      (x - 9*sizeX, y - 20*sizeY, x - 16*sizeX, y - 20*sizeY);
-    txLine      (x,           y - 20*sizeY, x +  9*sizeX, y - 37*sizeY);
-    txLine      (x,           y - 30*sizeY, x -  4*sizeX, y - 39*sizeY);
+    txLine   (x,           y -  8*sizeY, x +  9*sizeX, y - 20*sizeY);
+
+    txLine   (x +  9*sizeX, y - 20*sizeY, x + 18*sizeX, y - 23*sizeY);
+
+    txLine   (x,            y - 13*sizeY, x -  9*sizeX, y - 20*sizeY);
+
+    txLine   (x -  9*sizeX, y - 20*sizeY, x - 16*sizeX, y - 20*sizeY);
+
+    txLine   (x,            y - 20*sizeY, x +  9*sizeX, y - 37*sizeY);
+
+    txLine   (x,            y - 30*sizeY, x -  4*sizeX, y - 39*sizeY);
+
+    txSetColor  (TX_GREEN, 2);
+    txSetFillColor (TX_GREEN);
+    txCircle (x +  9*sizeX, y - 20*sizeY, 3*sizeX);
+    txCircle (x + 18*sizeX, y - 23*sizeY, 3*sizeX);
+    txCircle (x -  9*sizeX, y - 20*sizeY, 3*sizeX);
+    txCircle (x - 16*sizeX, y - 20*sizeY, 3*sizeX);
+    txCircle (x +  9*sizeX, y - 37*sizeY, 3*sizeX);
+    txCircle (x -  4*sizeX, y - 39*sizeY, 3*sizeX);
     }
 
 void BackGround ()
@@ -558,5 +572,6 @@ void HeightGarden ()
         t ++;
         txSleep (10);
         }
+    txSleep (500);
     }
 
