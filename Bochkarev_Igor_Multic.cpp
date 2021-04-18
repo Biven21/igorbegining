@@ -33,6 +33,7 @@ void Housbilding (int x);
 void Village ();
 void GardenStart ();
 void HeightGarden ();
+void HeightGardenEnd ();
 
 int main()
     {
@@ -40,13 +41,13 @@ int main()
     txSetFillColor  (TX_WHITE);
     txRectangle     ( 10,  10, 1190, 690);
 
-    //StartTitles ();
-    //txSleep (1000);
-    //Serenity ();
-    Disembarkation ();
-    Solstice ();
-    Disembarkation ();
-    ConstructionCamp ();
+   // StartTitles ();
+   // txSleep (1000);
+   // Serenity ();
+   // Disembarkation ();
+   // Solstice ();
+   // Disembarkation ();
+   // ConstructionCamp ();
     PlantingGarden ();
 
     EndTitles ();
@@ -184,30 +185,25 @@ void FirDraw (int x, int y, double sizeX, double sizeY, double Wind)
 void TreeDraw (int x, int y, double sizeX, double sizeY)
     {
     txSetColor (TX_BROWN, 4);
-    txLine   (x, y, x, y - 30*sizeY);
-    txCircle (x, y - 30*sizeY, 3*sizeX);
+    txLine   (x, y, x, y - 30 * sizeY);
 
     txSetColor  (TX_BROWN, 2);
     txLine   (x,           y -  8*sizeY, x +  9*sizeX, y - 20*sizeY);
-
     txLine   (x +  9*sizeX, y - 20*sizeY, x + 18*sizeX, y - 23*sizeY);
-
     txLine   (x,            y - 13*sizeY, x -  9*sizeX, y - 20*sizeY);
-
     txLine   (x -  9*sizeX, y - 20*sizeY, x - 16*sizeX, y - 20*sizeY);
-
     txLine   (x,            y - 20*sizeY, x +  9*sizeX, y - 37*sizeY);
-
     txLine   (x,            y - 30*sizeY, x -  4*sizeX, y - 39*sizeY);
 
     txSetColor  (TX_GREEN, 2);
     txSetFillColor (TX_GREEN);
-    txCircle (x +  9*sizeX, y - 20*sizeY, 3*sizeX);
-    txCircle (x + 18*sizeX, y - 23*sizeY, 3*sizeX);
-    txCircle (x -  9*sizeX, y - 20*sizeY, 3*sizeX);
-    txCircle (x - 16*sizeX, y - 20*sizeY, 3*sizeX);
-    txCircle (x +  9*sizeX, y - 37*sizeY, 3*sizeX);
-    txCircle (x -  4*sizeX, y - 39*sizeY, 3*sizeX);
+    txCircle (x, y - 30*sizeY, 3*sizeX);
+    txCircle (x +  9*sizeX, y - 20*sizeY, 3 * (sizeX + sizeY));
+    txCircle (x + 18*sizeX, y - 23*sizeY, 3 * (sizeX + sizeY));
+    txCircle (x -  9*sizeX, y - 20*sizeY, 3 * (sizeX + sizeY));
+    txCircle (x - 16*sizeX, y - 20*sizeY, 3 * (sizeX + sizeY));
+    txCircle (x +  9*sizeX, y - 37*sizeY, 3 * (sizeX + sizeY));
+    txCircle (x -  4*sizeX, y - 39*sizeY, 3 * (sizeX + sizeY));
     }
 
 void BackGround ()
@@ -460,6 +456,7 @@ void EndTitles ()
         txClear   ();
         Landscape ();
         Village ();
+        HeightGardenEnd ();
 
         SunDraw   (- 10 + t*3, 70 - t*0.1, 2, 1, 1, 1, 1, 1, 1, 1);
         SunDraw   (-400 + t*3, 70 - t*0.1, 2, 1, 1, 1, 1, 1, 1, 1);
@@ -574,4 +571,24 @@ void HeightGarden ()
         }
     txSleep (500);
     }
+
+void HeightGardenEnd ()
+    {
+    int t = 100;
+    TreeDraw (750,  600, 1 + t * 0.02, 1 + t * 0.02);
+    TreeDraw (850,  600, 1 + t * 0.02, 1 + t * 0.02);
+    TreeDraw (900,  600, 1 + t * 0.02, 1 + t * 0.02);
+    TreeDraw (1000, 600, 1 + t * 0.02, 1 + t * 0.02);
+
+    TreeDraw (900,  550, 1 + t * 0.02, 1 + t * 0.02);
+    TreeDraw (850,  550, 1 + t * 0.02, 1 + t * 0.02);
+    TreeDraw (750,  550, 1 + t * 0.02, 1 + t * 0.02);
+    TreeDraw (1000, 550, 1 + t * 0.02, 1 + t * 0.02);
+
+    TreeDraw (900,  500, 1 + t * 0.02, 1 + t * 0.02);
+    TreeDraw (850,  500, 1 + t * 0.02, 1 + t * 0.02);
+    TreeDraw (750,  500, 1 + t * 0.02, 1 + t * 0.02);
+    TreeDraw (1000, 500, 1 + t * 0.02, 1 + t * 0.02);
+    }
+
 
