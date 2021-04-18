@@ -35,25 +35,28 @@ void GardenStart ();
 void HeightGarden ();
 void HeightGardenEnd ();
 
+//-----------------------------------------------------------------------------
+
 int main()
     {
     txCreateWindow  (1200, 700);
     txSetFillColor  (TX_WHITE);
     txRectangle     ( 10,  10, 1190, 690);
 
-   // StartTitles ();
-   // txSleep (1000);
-   // Serenity ();
-   // Disembarkation ();
-   // Solstice ();
-   // Disembarkation ();
-   // ConstructionCamp ();
+    StartTitles ();
+    txSleep (1000);
+    Serenity ();
+    Disembarkation ();
+    Solstice ();
+    Disembarkation ();
+    ConstructionCamp ();
     PlantingGarden ();
-
     EndTitles ();
 
     return 0;
     }
+
+//-----------------------------------------------------------------------------
 
 void SunDraw (int x, int y, double size, double sizeChet, double sizeNChet, double sizeEyse,
               double EyeLeftX, double EyeRightX, double EyeLeftUp, double EyeRightUp )
@@ -87,6 +90,8 @@ void SunDraw (int x, int y, double size, double sizeChet, double sizeNChet, doub
     txPolygon (smile, 5);
     }
 
+//-----------------------------------------------------------------------------
+
 void HouseDraw (int x, int y, double sizeX, double sizeY, double GableUp, double GableX, double roofRight, double roofLeft)
     {
     txSetColor      (TX_GREEN);
@@ -113,6 +118,8 @@ void HouseDraw (int x, int y, double sizeX, double sizeY, double GableUp, double
     txPolygon (chimney, 4);
     }
 
+//-----------------------------------------------------------------------------
+
 void girlDraw (int x, int y, double sizeX, double sizeY, double wind)
     {
     txSetColor  (TX_GREEN);
@@ -133,10 +140,12 @@ void girlDraw (int x, int y, double sizeX, double sizeY, double wind)
     txPolygon   (flag, 3);
     }
 
+ //-----------------------------------------------------------------------------
+
 void BoyDraw (int x, int y, double sizeX, double sizeY, int shovelUp, int stepX, int stepY)
     {
     txSetColor  (TX_GREEN);
-    txCircle    (x, y - 5*sizeY, 5*((sizeX + sizeY)/2));
+    txCircle    (x, y - 5*sizeY, 5*((sizeX + sizeY) / 2));
 
     txSetColor      (TX_BLACK, 2);
     txSetFillColor  (TX_RED);
@@ -144,17 +153,19 @@ void BoyDraw (int x, int y, double sizeX, double sizeY, int shovelUp, int stepX,
                        {ROUND (x + 3*sizeX), ROUND (y + 16*sizeY)}, {ROUND (x - 1*sizeX), ROUND (y +16*sizeY)}};
     txPolygon (shirt, 4);
 
-    txLine      (ROUND (x -  1*sizeX), ROUND (y + 16*sizeY),          ROUND (x -  (stepX / 2)*sizeX), ROUND (y + (27 - (stepY / 2)) * sizeY));
-    txLine      (ROUND (x +  1*sizeX), ROUND (y + 16*sizeY),          ROUND (x +  (stepX / 2)*sizeX), ROUND (y + (27 + (stepY / 2)) * sizeY));
-    txLine      (ROUND (x -  3*sizeX), ROUND (y +  3*sizeY),          ROUND (x - 14*sizeX),           ROUND (y +  6*sizeY*shovelUp));
-    txLine      (ROUND (x +  5*sizeX), ROUND (y +  3*sizeY),          ROUND (x + 12*sizeX),           ROUND (y + 15*sizeY));
-    txLine      (ROUND (x - 14*sizeX), ROUND (y +  3*sizeY*shovelUp), ROUND (x - 14*sizeX),           ROUND (y + 23*sizeY*shovelUp));
+    txLine (ROUND (x -  1*sizeX), ROUND (y + 16*sizeY),          ROUND (x -  (stepX / 2)*sizeX), ROUND (y + (27 - (stepY / 2)) * sizeY));
+    txLine (ROUND (x +  1*sizeX), ROUND (y + 16*sizeY),          ROUND (x +  (stepX / 2)*sizeX), ROUND (y + (27 + (stepY / 2)) * sizeY));
+    txLine (ROUND (x -  3*sizeX), ROUND (y +  3*sizeY),          ROUND (x - 14*sizeX),           ROUND (y +  6*sizeY*shovelUp));
+    txLine (ROUND (x +  5*sizeX), ROUND (y +  3*sizeY),          ROUND (x + 12*sizeX),           ROUND (y + 15*sizeY));
+    txLine (ROUND (x - 14*sizeX), ROUND (y +  3*sizeY*shovelUp), ROUND (x - 14*sizeX),           ROUND (y + 23*sizeY*shovelUp));
 
     txSetFillColor  (TX_GRAY);
     POINT shovel [4] = {{ROUND (x - 17*sizeX), ROUND (y + 23*sizeY*shovelUp)}, {ROUND (x - 11*sizeX), ROUND (y + 23*sizeY*shovelUp)},
                         {ROUND (x - 12*sizeX), ROUND (y + 27*sizeY*shovelUp)}, {ROUND (x - 16*sizeX), ROUND (y + 27*sizeY*shovelUp)}};
     txPolygon (shovel, 4);
     }
+
+ //-----------------------------------------------------------------------------
 
 void FirDraw (int x, int y, double sizeX, double sizeY, double Wind)
     {
@@ -182,6 +193,8 @@ void FirDraw (int x, int y, double sizeX, double sizeY, double Wind)
     txPolygon  (Fir3Line, 3);
     }
 
+//-----------------------------------------------------------------------------
+
 void TreeDraw (int x, int y, double sizeX, double sizeY)
     {
     txSetColor (TX_BROWN, 4);
@@ -197,7 +210,7 @@ void TreeDraw (int x, int y, double sizeX, double sizeY)
 
     txSetColor  (TX_GREEN, 2);
     txSetFillColor (TX_GREEN);
-    txCircle (x, y - 30*sizeY, 3*sizeX);
+    txCircle (x,            y - 30*sizeY, 3 * (sizeX + sizeY));
     txCircle (x +  9*sizeX, y - 20*sizeY, 3 * (sizeX + sizeY));
     txCircle (x + 18*sizeX, y - 23*sizeY, 3 * (sizeX + sizeY));
     txCircle (x -  9*sizeX, y - 20*sizeY, 3 * (sizeX + sizeY));
@@ -206,6 +219,8 @@ void TreeDraw (int x, int y, double sizeX, double sizeY)
     txCircle (x -  4*sizeX, y - 39*sizeY, 3 * (sizeX + sizeY));
     }
 
+//-----------------------------------------------------------------------------
+//_____________________________________________________________________________
 void BackGround ()
     {
     HouseDraw (557, 321,  1,   1,   1,    1,   1,   1);
@@ -241,11 +256,14 @@ void BackGround ()
     txSetColor  (TX_GREEN, 2);
     txLine      (273, 323, 443, 323);
     }
+//_____________________________________________________________________________
+
+//-----------------------------------------------------------------------------
 
 void StartTitles ()
         {
-    txSetFillColor  (RGB (0, 150, 200));
-    txRectangle     ( 10,  10, 1190, 690);
+    txSetFillColor (RGB (0, 150, 200));
+    txRectangle    ( 10,  10, 1190, 690);
 
     int x = 1;
     while (x <= 300)
@@ -253,7 +271,7 @@ void StartTitles ()
         txClear ();
         txSetColor (TX_BLACK, 10);
         txSelectFont ("Tahoma", 40);
-        txTextOut  (x + 20, 100, "ÁÎ×ÊÀÐÅÂ ÔÈËÜÌ");
+        txTextOut (x + 20, 100, "ÁÎ×ÊÀÐÅÂ ÔÈËÜÌ");
         x = x + 1;
         txSleep (10);
         }
@@ -264,10 +282,10 @@ void StartTitles ()
         txClear ();
         txSetColor (TX_BLACK, 10);
         txSelectFont ("Tahoma", 40);
-        txTextOut  (300, 100, "ÁÎ×ÊÀÐÅÂ ÔÈËÜÌ");
+        txTextOut (300, 100, "ÁÎ×ÊÀÐÅÂ ÔÈËÜÌ");
         txSetColor (TX_RED, 100);
         txSelectFont ("Tahoma|", 60);
-        txTextOut  (x + 10, 180, " ÏÅÄÑÒÀÂËßÅÒ ");
+        txTextOut (x + 10, 180, " ÏÅÄÑÒÀÂËßÅÒ ");
         x ++;
         txSleep (10);
         }
@@ -286,6 +304,8 @@ void StartTitles ()
         txSleep (10);
         }
     }
+
+//-----------------------------------------------------------------------------
 
 void StarShip (int x, int y, double sizeShip)
     {
@@ -311,6 +331,8 @@ void StarShip (int x, int y, double sizeShip)
     txPolygon (Support4, 3);
     }
 
+//-----------------------------------------------------------------------------
+
 void ArrivalStarShip (int x)
     {
     int t = 0;
@@ -324,12 +346,15 @@ void ArrivalStarShip (int x)
         txSleep (x);
         }
     }
+
+//-----------------------------------------------------------------------------
+
 void Landscape ()
     {
     txSetColor (TX_LIGHTGREEN);
     txSetFillColor (RGB (0, 255, 128));
     POINT ValleyHorizon [11] = {{ 10, 498}, { 62, 478}, {139, 461}, { 277, 442}, { 437, 442},
-                                 {648, 433}, {840, 433}, {969, 453}, {1190, 531}, {1190, 700}, {10, 700}};
+                                {648, 433}, {840, 433}, {969, 453}, {1190, 531}, {1190, 700}, {10, 700}};
     txPolygon (ValleyHorizon, 11);
 
     txSetColor (TX_LIGHTGRAY);
@@ -368,6 +393,8 @@ void Landscape ()
     txPolygon (Sky, 14);
     }
 
+//-----------------------------------------------------------------------------
+
 void Serenity ()
     {
     int x = 0;
@@ -383,6 +410,8 @@ void Serenity ()
         txSleep (5);
         }
     }
+
+//-----------------------------------------------------------------------------
 
 void Disembarkation ()
     {
@@ -401,6 +430,8 @@ void Disembarkation ()
         }
     }
 
+//-----------------------------------------------------------------------------
+
 void Solstice ()
     {
     int t = 0;
@@ -418,6 +449,8 @@ void Solstice ()
         }
     }
 
+//-----------------------------------------------------------------------------
+
 void ConstructionCamp ()
     {
     int t = 0;
@@ -425,7 +458,6 @@ void ConstructionCamp ()
         {
         txClear   ();
         Landscape ();
-        //int Step = int (t) %
 
         SunDraw (-  10 + t*4.5, 270 - t,     2, 1, 1, 1, 1, 1, 1, 1);
         SunDraw (- 400 + t*4.5, 270 - t,     2, 1, 1, 1, 1, 1, 1, 1);
@@ -447,6 +479,8 @@ void ConstructionCamp ()
         }
     Housbilding (1000);
     }
+
+//-----------------------------------------------------------------------------
 
 void EndTitles ()
     {
@@ -470,22 +504,26 @@ void EndTitles ()
         }
     }
 
+//-----------------------------------------------------------------------------
+
 void Housbilding (int x)
     {
     txSleep (x);
-    HouseDraw (150, 521,  1,   1,   1,    1,   1,   1);
+    HouseDraw (150, 521, 1, 1, 1, 1, 1, 1);
     txSleep (x);
-    HouseDraw (450, 521,  1,   1,   1,    1,   1,   1);
+    HouseDraw (450, 521, 1, 1, 1, 1, 1, 1);
     txSleep (x);
-    HouseDraw (650, 521,  1,   1,   1,    1,   1,   1);
+    HouseDraw (650, 521, 1, 1, 1, 1, 1, 1);
     txSleep (x);
-    HouseDraw (657, 621,  1,   1,   1,    1,   1,   1);
+    HouseDraw (657, 621, 1, 1, 1, 1, 1, 1);
     txSleep (x);
-    HouseDraw (150, 621,  1,   1,   1,    1,   1,   1);
+    HouseDraw (150, 621, 1, 1, 1, 1, 1, 1);
     txSleep (x);
-    HouseDraw (450, 621,  1,   1,   1,    1,   1,   1);
+    HouseDraw (450, 621, 1, 1, 1, 1, 1, 1);
     txSleep (x);
     }
+
+//-----------------------------------------------------------------------------
 
 void Village ()
     {
@@ -496,6 +534,8 @@ void Village ()
     HouseDraw (150, 621,  1,   1,   1,    1,   1,   1);
     HouseDraw (450, 621,  1,   1,   1,    1,   1,   1);
     }
+
+//-----------------------------------------------------------------------------
 
 void PlantingGarden ()
     {
@@ -524,6 +564,9 @@ void PlantingGarden ()
     GardenStart ();
     HeightGarden ();
     }
+
+//-----------------------------------------------------------------------------
+
 void GardenStart ()
     {
     TreeDraw (750,  600, 1, 1); txSleep (500);
@@ -541,6 +584,8 @@ void GardenStart ()
     TreeDraw (750,  500, 1, 1); txSleep (500);
     TreeDraw (1000, 500, 1, 1); txSleep (500);
     }
+
+//-----------------------------------------------------------------------------
 
 void HeightGarden ()
     {
@@ -572,6 +617,8 @@ void HeightGarden ()
     txSleep (500);
     }
 
+//-----------------------------------------------------------------------------
+
 void HeightGardenEnd ()
     {
     int t = 100;
@@ -590,5 +637,7 @@ void HeightGardenEnd ()
     TreeDraw (750,  500, 1 + t * 0.02, 1 + t * 0.02);
     TreeDraw (1000, 500, 1 + t * 0.02, 1 + t * 0.02);
     }
+
+//-----------------------------------------------------------------------------
 
 
