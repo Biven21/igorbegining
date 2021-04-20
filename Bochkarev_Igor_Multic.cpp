@@ -149,12 +149,15 @@ void BoyDraw (int x, int y, double sizeX, double sizeY, int shovelUp, int stepX,
 
     txSetColor      (TX_BLACK, 2);
     txSetFillColor  (TX_RED);
-    POINT shirt [4] = {{ROUND (x - 4*sizeX), ROUND (y)},            {ROUND (x + 6*sizeX), ROUND (y)},
-                       {ROUND (x + 3*sizeX), ROUND (y + 16*sizeY)}, {ROUND (x - 1*sizeX), ROUND (y +16*sizeY)}};
+    POINT shirt [4] = {{ROUND (x - 6*sizeX), ROUND (y)},            {ROUND (x + 6*sizeX), ROUND (y)},
+                       {ROUND (x + 3*sizeX), ROUND (y + 16*sizeY)}, {ROUND (x - 3*sizeX), ROUND (y +16*sizeY)}};
     txPolygon (shirt, 4);
 
-    txLine (ROUND (x -  1*sizeX), ROUND (y + 16*sizeY),          ROUND (x -  (stepX / 2)*sizeX), ROUND (y + (27 - (stepY / 2)) * sizeY));
-    txLine (ROUND (x +  1*sizeX), ROUND (y + 16*sizeY),          ROUND (x +  (stepX / 2)*sizeX), ROUND (y + (27 + (stepY / 2)) * sizeY));
+    txLine (ROUND (x -  1*sizeX),  ROUND (y + 16*sizeY),                   ROUND (x - (kneeX / 2)*sizeX), ROUND (y + (22 - (kneeY / 2)) * sizeY));
+    txLine (ROUND (x - kneeX / 2), ROUND (y + (22 - (kneeY / 2)) * sizeY), ROUND (x -
+
+    txLine (ROUND (x +  1*sizeX), ROUND (y + 16*sizeY), ROUND (x +  (stepX / 2)*sizeX), ROUND (y + (22 + (stepY / 2)) * sizeY));
+
     txLine (ROUND (x -  3*sizeX), ROUND (y +  3*sizeY),          ROUND (x - 14*sizeX),           ROUND (y +  6*sizeY*shovelUp));
     txLine (ROUND (x +  5*sizeX), ROUND (y +  3*sizeY),          ROUND (x + 12*sizeX),           ROUND (y + 15*sizeY));
     txLine (ROUND (x - 14*sizeX), ROUND (y +  3*sizeY*shovelUp), ROUND (x - 14*sizeX),           ROUND (y + 23*sizeY*shovelUp));
