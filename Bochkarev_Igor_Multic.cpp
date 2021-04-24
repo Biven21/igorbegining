@@ -15,7 +15,7 @@ void HouseDraw   (int x, int y, double sizeX, double sizeY, double GableUp, doub
 void SunDraw     (int x, int y, double size,  double sizeChet, double sizeNChet, double sizeEyse,
                  double EyeLeftX, double EyeRightX, double EyeLeftUp, double EyeRightUp);
 void girlDraw    (int x, int y, double sizeX, double sizeY, double wind);
-void BoyDraw     (int x, int y, double sizeX, double sizeY, int shovelUp, double kneeX, double kneeY, double footX, double footY);
+void BoyDraw     (int x, int y, double sizeX, double sizeY, int shovelUp, int stepX, int stepY);
 void FirDraw     (int x, int y, double sizeX, double sizeY, double Wind);
 void TreeDraw    (int x, int y); //, double sizeX, double sizeY
 void BackGround  ();
@@ -142,27 +142,22 @@ void girlDraw (int x, int y, double sizeX, double sizeY, double wind)
 
  //-----------------------------------------------------------------------------
 
-void BoyDraw (int x, int y, double sizeX, double sizeY, int shovelUp, double kneeX, double kneeY, double footX, double footY)
+void BoyDraw (int x, int y, double sizeX, double sizeY, int shovelUp, int stepX, int stepY)
     {
     txSetColor  (TX_GREEN);
     txCircle    (x, y - 5*sizeY, 5*((sizeX + sizeY) / 2));
 
     txSetColor      (TX_BLACK, 2);
     txSetFillColor  (TX_RED);
-    POINT shirt [4] = {{ROUND (x - 6*sizeX), ROUND (y)},            {ROUND (x + 6*sizeX), ROUND (y)},
-                       {ROUND (x + 3*sizeX), ROUND (y + 16*sizeY)}, {ROUND (x - 3*sizeX), ROUND (y +16*sizeY)}};
+    POINT shirt [4] = {{ROUND (x - 4*sizeX), ROUND (y)},            {ROUND (x + 6*sizeX), ROUND (y)},
+                       {ROUND (x + 3*sizeX), ROUND (y + 16*sizeY)}, {ROUND (x - 1*sizeX), ROUND (y +16*sizeY)}};
     txPolygon (shirt, 4);
 
-    txSetColor (TX_BLACK, 4);
-    txLine (ROUND (x - 1*sizeX),         ROUND (y + 16*sizeY),               ROUND (x - (2*kneeX * sizeX)), ROUND (y + (22 - (kneeY * sizeY))));
-    txLine (ROUND (x - 2*kneeX * sizeX), ROUND (y + (22 - (kneeY * sizeY))), ROUND (x - (3*footX * sizeX)), ROUND (y + (28 - (footY * sizeY))));
-
-    txLine (ROUND (x + 1*sizeX),         ROUND (y + 16*sizeY),               ROUND (x + (2*kneeX * sizeX)), ROUND (y + (22 - (kneeY * sizeY))));
-    txLine (ROUND (x + 2*kneeX * sizeX), ROUND (y + (22 - (kneeY * sizeY))), ROUND (x + (3*footX * sizeX)), ROUND (y + (28 - (footY * sizeY))));
-
-    txLine (ROUND (x -  3*sizeX), ROUND (y +  3*sizeY),          ROUND (x - 14*sizeX), ROUND (y +  6*sizeY*shovelUp));
-    txLine (ROUND (x +  5*sizeX), ROUND (y +  3*sizeY),          ROUND (x + 12*sizeX), ROUND (y + 15*sizeY));
-    txLine (ROUND (x - 14*sizeX), ROUND (y +  3*sizeY*shovelUp), ROUND (x - 14*sizeX), ROUND (y + 23*sizeY*shovelUp));
+    txLine (ROUND (x -  1*sizeX), ROUND (y + 16*sizeY),          ROUND (x -  (stepX / 2)*sizeX), ROUND (y + (27 - (stepY / 2)) * sizeY));
+    txLine (ROUND (x +  1*sizeX), ROUND (y + 16*sizeY),          ROUND (x +  (stepX / 2)*sizeX), ROUND (y + (27 + (stepY / 2)) * sizeY));
+    txLine (ROUND (x -  3*sizeX), ROUND (y +  3*sizeY),          ROUND (x - 14*sizeX),           ROUND (y +  6*sizeY*shovelUp));
+    txLine (ROUND (x +  5*sizeX), ROUND (y +  3*sizeY),          ROUND (x + 12*sizeX),           ROUND (y + 15*sizeY));
+    txLine (ROUND (x - 14*sizeX), ROUND (y +  3*sizeY*shovelUp), ROUND (x - 14*sizeX),           ROUND (y + 23*sizeY*shovelUp));
 
     txSetFillColor  (TX_GRAY);
     POINT shovel [4] = {{ROUND (x - 17*sizeX), ROUND (y + 23*sizeY*shovelUp)}, {ROUND (x - 11*sizeX), ROUND (y + 23*sizeY*shovelUp)},
@@ -239,9 +234,9 @@ void BackGround ()
     girlDraw  (202, 200,  2.5, 2.5, -1);
     girlDraw  (429, 399, -4,  -2,   -1);
 
-    //BoyDraw   (388, 296, 1, 1,  1, 5, 27);
-    //BoyDraw   (500, 500, 3, 3, -1, 5, 27);
-    //BoyDraw   (600, 500, 3, 3, -1, 5, 27);
+    BoyDraw   (388, 296, 1, 1,  1, 5, 27);
+    BoyDraw   (500, 500, 3, 3, -1, 5, 27);
+    BoyDraw   (600, 500, 3, 3, -1, 5, 27);
 
 
     FirDraw   (292, 277, 1,   1, 0);
@@ -425,10 +420,8 @@ void Disembarkation ()
     ArrivalStarShip (5);
     while (t < 300, shovel <= 15)
         {
-        BoyDraw  (250 + t, 550 - t / 10, 2, 2, shovel % 2 * 2 - 1, 1, 1, 1, 1);
-
+        BoyDraw  (250 + t,      550 - t / 10,      2,   2,   shovel % 2 * 2 - 1, 6, 1);
         girlDraw (250 + t + 10, 550 - t / 10 - 50, 2.5, 2.5, 2);
-
         StarShip (200, 500, 1.5);
 
         t += 30;
