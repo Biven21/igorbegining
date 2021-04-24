@@ -142,7 +142,9 @@ void girlDraw (int x, int y, double sizeX, double sizeY, double wind)
 
  //-----------------------------------------------------------------------------
 
-void BoyDraw (int x, int y, double sizeX, double sizeY, int shovelUp, double kneeX, double kneeY, double footX, double footY)
+void BoyDraw (int x, int y, double sizeX, double sizeY, int shovelUp,
+              double LeftKneeX, double LeftKneeY, double LeftFootX, double LeftFootY,
+              double RightKneeX, double RightKneeY, double RightFootX, double RightFootY)
     {
     txSetColor  (TX_GREEN);
     txCircle    (x, y - 5*sizeY, 5*((sizeX + sizeY) / 2));
@@ -154,14 +156,14 @@ void BoyDraw (int x, int y, double sizeX, double sizeY, int shovelUp, double kne
     txPolygon (shirt, 4);
 
     txSetColor (TX_BLACK, 4);
-    txLine (ROUND (x - 1*sizeX),         ROUND (y + 16*sizeY),               ROUND (x - (2*kneeX * sizeX)), ROUND (y + (22 - (kneeY * sizeY))));
-    txLine (ROUND (x - 2*kneeX * sizeX), ROUND (y + (22 - (kneeY * sizeY))), ROUND (x - (3*footX * sizeX)), ROUND (y + (28 - (footY * sizeY))));
+    txLine (ROUND (x - 1*sizeX),                 ROUND (y + 16*sizeY),                 ROUND (x - (2 + LeftKneeX) * sizeX), ROUND (y + (22 - LeftKneeY) * sizeY));
+    txLine (ROUND (x - (2 + LeftKneeX) * sizeX), ROUND (y + (22 - LeftKneeY) * sizeY), ROUND (x - (3 + LeftFootX) * sizeX), ROUND (y + (28 - LeftFootY) * sizeY));
 
-    txLine (ROUND (x + 1*sizeX),         ROUND (y + 16*sizeY),               ROUND (x + (2*kneeX * sizeX)), ROUND (y + (22 - (kneeY * sizeY))));
-    txLine (ROUND (x + 2*kneeX * sizeX), ROUND (y + (22 - (kneeY * sizeY))), ROUND (x + (3*footX * sizeX)), ROUND (y + (28 - (footY * sizeY))));
+    txLine (ROUND (x + 1*sizeX),                  ROUND (y + 16*sizeY),                  ROUND (x + (2 + RightKneeX) * sizeX), ROUND (y + (22 - RightKneeY) * sizeY));
+    txLine (ROUND (x + (2 + RightKneeX) * sizeX), ROUND (y + (22 - RightKneeY) * sizeY), ROUND (x + (3 + RightFootX) * sizeX), ROUND (y + (28 - RightFootY) * sizeY));
 
-    txLine (ROUND (x -  3*sizeX), ROUND (y +  3*sizeY),          ROUND (x - 14*sizeX), ROUND (y +  6*sizeY*shovelUp));
-    txLine (ROUND (x +  5*sizeX), ROUND (y +  3*sizeY),          ROUND (x + 12*sizeX), ROUND (y + 15*sizeY));
+    txLine (ROUND (x -  3*sizeX), ROUND (y +  3*sizeY), ROUND (x - 14*sizeX), ROUND (y +  6*sizeY*shovelUp));
+    txLine (ROUND (x +  5*sizeX), ROUND (y +  3*sizeY), ROUND (x + 12*sizeX), ROUND (y + 15*sizeY));
 
     txLine (ROUND (x - 14*sizeX), ROUND (y +  3*sizeY*shovelUp), ROUND (x - 14*sizeX), ROUND (y + 23*sizeY*shovelUp));
     txSetFillColor  (TX_GRAY);
