@@ -48,7 +48,7 @@ int main()
     //Serenity ();
     //Disembarkation ();
     //Solstice ();
-    Disembarkation ();
+    //Disembarkation ();
     ConstructionCamp ();
     PlantingGarden ();
     //EndTitles ();
@@ -463,7 +463,7 @@ void Solstice ()
 void ConstructionCamp ()
     {
     int t = 0;
-    while (t < 500)
+    while (t < 520)
         {
         txClear   ();
         Landscape ();
@@ -474,8 +474,8 @@ void ConstructionCamp ()
         SunDraw (-1400 + t*4,   270 - t*0.6, 2, 1, 1, 1, 1, 1, 1, 1);
 
         BoyDraw ( 50 + 0.2*t, 600 - 0.25*t, 2, 2, 1,
-                (t / 20) % 2 * 2,        (t / 20) % 2 * 7,        (t / 20) % 2,        (t / 20) % 2 * 7,
-                (t / 20) % 2 * (-1) * 2, (t / 20) % 2 * (-1) * 7, (t / 20) % 2 * (-1), (t / 20) % 2 * (-1) * 7);
+                ((t + 2) / 20) % 2 * 2,       ((t + 2) / 20) % 2 * 7,       ((t + 2) / 20) % 2,       ((t + 2) / 20) % 2 * 7,
+                ((t / 20) % 2 * (-1) + 1) * 2, ((t / 20) % 2 * (-1) + 1) * 7, ((t / 20) % 2 * (-1) + 1), ((t / 20) % 2 * (-1) + 1) * 7);
 
         //BoyDraw (100 + 0.2*t, 600 - 0.4*t,  2, 2, 1, 2 + ((t / 10) % 3) * 1, t / 10 % 3);
         //BoyDraw (150 + 0.2*t, 600 - 0.4*t,  2, 2, 1, 2 + ((t / 10) % 3) * 1, t / 10 % 3);
