@@ -16,7 +16,10 @@
 
 #endif // BIVENLIB_H_INCLUDED
 
-void BoyDraw     (int x, int y, double sizeX, double sizeY, int shovelUp, double kneeX, double kneeY, double footX, double footY);
+void BoyDraw   (int x, int y, double sizeX, double sizeY, int shovelUp, double kneeX, double kneeY, double footX, double footY);
+void HouseDraw (int x, int y, double sizeX, double sizeY, double GableUp, double GableX, double roofRight, double roofLeft);
+void TreeDraw  (int x, int y, double sizeX, double sizeY);
+
 
 void BoyDraw (int x, int y, double sizeX, double sizeY, int shovelUp,
               double LeftKneeX, double LeftKneeY, double LeftFootX, double LeftFootY,
@@ -48,3 +51,52 @@ void BoyDraw (int x, int y, double sizeX, double sizeY, int shovelUp,
     txPolygon (shovel, 4);
     }
 
+void HouseDraw (int x, int y, double sizeX, double sizeY, double GableUp, double GableX, double roofRight, double roofLeft)
+    {
+    txSetColor      (TX_GREEN);
+
+    txSetFillColor  (TX_GREEN);
+    txRectangle (x - 100*sizeX, y - 70*sizeY, x, y);
+
+    txSetFillColor  (TX_LIGHTGRAY);
+    txRectangle (x - 36*sizeX, y - 42*sizeY, x - 15*sizeX, y);
+
+    txSetFillColor  (TX_YELLOW);
+    txRectangle (x - 79*sizeX, y - 42*sizeY, x - 65*sizeX, y - 22*sizeY);
+    txLine      (x - 73*sizeX, y - 42*sizeY, x - 73*sizeX, y - 22*sizeY);
+
+    txSetFillColor  (TX_RED);
+    POINT roof [3] = {{ROUND (x - 120*sizeX*roofLeft),  ROUND (y -  70*sizeY)},
+                      {ROUND (x -  50*sizeX*GableX),    ROUND (y - 128*sizeY*GableUp)},
+                      {ROUND (x +  20*sizeX*roofRight), ROUND (y -  70*sizeY)}};
+    txPolygon  (roof, 3);
+
+    txSetFillColor  (TX_BROWN);
+    POINT chimney [4] = {{ROUND (x - 85*sizeX), ROUND (y - 99*sizeY)},          {ROUND (x - 85*sizeX), ROUND (y - 117*sizeY*GableUp)},
+                         {ROUND (x - 76*sizeX), ROUND (y - 117*sizeY*GableUp)}, {ROUND (x - 76*sizeX), ROUND (y - 107*sizeY)}};
+    txPolygon (chimney, 4);
+    }
+
+void TreeDraw (int x, int y, double sizeX, double sizeY)
+    {
+    txSetColor (TX_BROWN, 4);
+    txLine   (x, y, x, y - 30 * sizeY);
+
+    txSetColor  (TX_BROWN, 2);
+    txLine   (x,           y -  8*sizeY, x +  9*sizeX, y - 20*sizeY);
+    txLine   (x +  9*sizeX, y - 20*sizeY, x + 18*sizeX, y - 23*sizeY);
+    txLine   (x,            y - 13*sizeY, x -  9*sizeX, y - 20*sizeY);
+    txLine   (x -  9*sizeX, y - 20*sizeY, x - 16*sizeX, y - 20*sizeY);
+    txLine   (x,            y - 20*sizeY, x +  9*sizeX, y - 37*sizeY);
+    txLine   (x,            y - 30*sizeY, x -  4*sizeX, y - 39*sizeY);
+
+    txSetColor  (TX_GREEN, 2);
+    txSetFillColor (TX_GREEN);
+    txCircle (x,            y - 30*sizeY, 3 * (sizeX + sizeY));
+    txCircle (x +  9*sizeX, y - 20*sizeY, 3 * (sizeX + sizeY));
+    txCircle (x + 18*sizeX, y - 23*sizeY, 3 * (sizeX + sizeY));
+    txCircle (x -  9*sizeX, y - 20*sizeY, 3 * (sizeX + sizeY));
+    txCircle (x - 16*sizeX, y - 20*sizeY, 3 * (sizeX + sizeY));
+    txCircle (x +  9*sizeX, y - 37*sizeY, 3 * (sizeX + sizeY));
+    txCircle (x -  4*sizeX, y - 39*sizeY, 3 * (sizeX + sizeY));
+    }
