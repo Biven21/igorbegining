@@ -10,14 +10,12 @@
 //-----------------------------------------------------------------------------
 
 #include "TXLib.h"
+#include "BivenLib.h"
 
-void HouseDraw   (int x, int y, double sizeX, double sizeY, double GableUp, double GableX, double roofRight, double roofLeft);
-void SunDraw     (int x, int y, double size,  double sizeChet, double sizeNChet, double sizeEyse,
-                 double EyeLeftX, double EyeRightX, double EyeLeftUp, double EyeRightUp);
+using namespace Biven;
+
 void girlDraw    (int x, int y, double sizeX, double sizeY, double wind);
-void BoyDraw     (int x, int y, double sizeX, double sizeY, int shovelUp, double kneeX, double kneeY, double footX, double footY);
 void FirDraw     (int x, int y, double sizeX, double sizeY, double Wind);
-void TreeDraw    (int x, int y); //, double sizeX, double sizeY
 void BackGround  ();
 void StartTitles ();
 void StarShip    (int x, int y, double sizeShip);
@@ -92,31 +90,6 @@ void SunDraw (int x, int y, double size, double sizeChet, double sizeNChet, doub
 
 //-----------------------------------------------------------------------------
 
-void HouseDraw (int x, int y, double sizeX, double sizeY, double GableUp, double GableX, double roofRight, double roofLeft)
-    {
-    txSetColor      (TX_GREEN);
-
-    txSetFillColor  (TX_GREEN);
-    txRectangle (x - 100*sizeX, y - 70*sizeY, x, y);
-
-    txSetFillColor  (TX_LIGHTGRAY);
-    txRectangle (x - 36*sizeX, y - 42*sizeY, x - 15*sizeX, y);
-
-    txSetFillColor  (TX_YELLOW);
-    txRectangle (x - 79*sizeX, y - 42*sizeY, x - 65*sizeX, y - 22*sizeY);
-    txLine      (x - 73*sizeX, y - 42*sizeY, x - 73*sizeX, y - 22*sizeY);
-
-    txSetFillColor  (TX_RED);
-    POINT roof [3] = {{ROUND (x - 120*sizeX*roofLeft),  ROUND (y -  70*sizeY)},
-                      {ROUND (x -  50*sizeX*GableX),    ROUND (y - 128*sizeY*GableUp)},
-                      {ROUND (x +  20*sizeX*roofRight), ROUND (y -  70*sizeY)}};
-    txPolygon  (roof, 3);
-
-    txSetFillColor  (TX_BROWN);
-    POINT chimney [4] = {{ROUND (x - 85*sizeX), ROUND (y - 99*sizeY)},          {ROUND (x - 85*sizeX), ROUND (y - 117*sizeY*GableUp)},
-                         {ROUND (x - 76*sizeX), ROUND (y - 117*sizeY*GableUp)}, {ROUND (x - 76*sizeX), ROUND (y - 107*sizeY)}};
-    txPolygon (chimney, 4);
-    }
 
 //-----------------------------------------------------------------------------
 
@@ -202,29 +175,6 @@ void FirDraw (int x, int y, double sizeX, double sizeY, double Wind)
 
 //-----------------------------------------------------------------------------
 
-void TreeDraw (int x, int y, double sizeX, double sizeY)
-    {
-    txSetColor (TX_BROWN, 4);
-    txLine   (x, y, x, y - 30 * sizeY);
-
-    txSetColor  (TX_BROWN, 2);
-    txLine   (x,           y -  8*sizeY, x +  9*sizeX, y - 20*sizeY);
-    txLine   (x +  9*sizeX, y - 20*sizeY, x + 18*sizeX, y - 23*sizeY);
-    txLine   (x,            y - 13*sizeY, x -  9*sizeX, y - 20*sizeY);
-    txLine   (x -  9*sizeX, y - 20*sizeY, x - 16*sizeX, y - 20*sizeY);
-    txLine   (x,            y - 20*sizeY, x +  9*sizeX, y - 37*sizeY);
-    txLine   (x,            y - 30*sizeY, x -  4*sizeX, y - 39*sizeY);
-
-    txSetColor  (TX_GREEN, 2);
-    txSetFillColor (TX_GREEN);
-    txCircle (x,            y - 30*sizeY, 3 * (sizeX + sizeY));
-    txCircle (x +  9*sizeX, y - 20*sizeY, 3 * (sizeX + sizeY));
-    txCircle (x + 18*sizeX, y - 23*sizeY, 3 * (sizeX + sizeY));
-    txCircle (x -  9*sizeX, y - 20*sizeY, 3 * (sizeX + sizeY));
-    txCircle (x - 16*sizeX, y - 20*sizeY, 3 * (sizeX + sizeY));
-    txCircle (x +  9*sizeX, y - 37*sizeY, 3 * (sizeX + sizeY));
-    txCircle (x -  4*sizeX, y - 39*sizeY, 3 * (sizeX + sizeY));
-    }
 
 //-----------------------------------------------------------------------------
 //_____________________________________________________________________________
@@ -474,7 +424,16 @@ void ConstructionCamp ()
         SunDraw (-1400 + t*4,   270 - t*0.6, 2, 1, 1, 1, 1, 1, 1, 1);
 
         BoyDraw ( 50 + 0.2*t, 600 - 0.25*t, 2, 2, 1,
-                ((t + 2) / 20) % 2 * 2,       ((t + 2) / 20) % 2 * 7,       ((t + 2) / 20) % 2,       ((t + 2) / 20) % 2 * 7,
+                ((t + 2) / 20) % 2 * 2,        ((t + 2) / 20) % 2 * 7,        ((t + 2) / 20) % 2,        ((t + 2) / 20) % 2 * 7,
+                ((t / 20) % 2 * (-1) + 1) * 2, ((t / 20) % 2 * (-1) + 1) * 7, ((t / 20) % 2 * (-1) + 1), ((t / 20) % 2 * (-1) + 1) * 7);
+        BoyDraw (100 + 0.2*t, 600 - 0.40*t, 2, 2, 1,
+                ((t + 2) / 20) % 2 * 2,        ((t + 2) / 20) % 2 * 7,        ((t + 2) / 20) % 2,        ((t + 2) / 20) % 2 * 7,
+                ((t / 20) % 2 * (-1) + 1) * 2, ((t / 20) % 2 * (-1) + 1) * 7, ((t / 20) % 2 * (-1) + 1), ((t / 20) % 2 * (-1) + 1) * 7);
+        BoyDraw (150 + 0.2*t, 600 - 0.40*t, 2, 2, 1,
+                ((t + 2) / 20) % 2 * 2,        ((t + 2) / 20) % 2 * 7,        ((t + 2) / 20) % 2,        ((t + 2) / 20) % 2 * 7,
+                ((t / 20) % 2 * (-1) + 1) * 2, ((t / 20) % 2 * (-1) + 1) * 7, ((t / 20) % 2 * (-1) + 1), ((t / 20) % 2 * (-1) + 1) * 7);
+        BoyDraw (200 + 0.2*t, 600 - 0.25*t, 2, 2, 1,
+                ((t + 2) / 20) % 2 * 2,        ((t + 2) / 20) % 2 * 7,        ((t + 2) / 20) % 2,        ((t + 2) / 20) % 2 * 7,
                 ((t / 20) % 2 * (-1) + 1) * 2, ((t / 20) % 2 * (-1) + 1) * 7, ((t / 20) % 2 * (-1) + 1), ((t / 20) % 2 * (-1) + 1) * 7);
 
         //BoyDraw (100 + 0.2*t, 600 - 0.4*t,  2, 2, 1, 2 + ((t / 10) % 3) * 1, t / 10 % 3);
