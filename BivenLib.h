@@ -16,13 +16,19 @@
 
 #endif // BIVENLIB_H_INCLUDED
 
-void BoyDraw   (int x, int y, double sizeX, double sizeY, int shovelUp, double kneeX, double kneeY, double footX, double footY);
+namespace Biven
+{
+void BoyDraw   (int x, int y, double sizeX, double sizeY, int shovelUp,
+              double LeftKneeX,  double LeftKneeY,  double LeftFootX,  double LeftFootY,
+              double RightKneeX, double RightKneeY, double RightFootX, double RightFootY);
 void HouseDraw (int x, int y, double sizeX, double sizeY, double GableUp, double GableX, double roofRight, double roofLeft);
 void TreeDraw  (int x, int y, double sizeX, double sizeY);
+void SunDraw   (int x, int y, double size, double sizeChet, double sizeNChet, double sizeEyse,
+              double EyeLeftX, double EyeRightX, double EyeLeftUp, double EyeRightUp );
 
 
 void BoyDraw (int x, int y, double sizeX, double sizeY, int shovelUp,
-              double LeftKneeX, double LeftKneeY, double LeftFootX, double LeftFootY,
+              double LeftKneeX,  double LeftKneeY,  double LeftFootX,  double LeftFootY,
               double RightKneeX, double RightKneeY, double RightFootX, double RightFootY)
     {
     txSetColor  (TX_GREEN);
@@ -100,3 +106,35 @@ void TreeDraw (int x, int y, double sizeX, double sizeY)
     txCircle (x +  9*sizeX, y - 37*sizeY, 3 * (sizeX + sizeY));
     txCircle (x -  4*sizeX, y - 39*sizeY, 3 * (sizeX + sizeY));
     }
+void SunDraw (int x, int y, double size, double sizeChet, double sizeNChet, double sizeEyse,
+              double EyeLeftX, double EyeRightX, double EyeLeftUp, double EyeRightUp )
+    {
+    txSetColor     (TX_YELLOW, 4);
+    txSetFillColor (TX_YELLOW);
+    txCircle (x, y, 20*size);
+    txLine (ROUND (x + 15*size), ROUND (y - 14*size), ROUND (x + 40*size*sizeNChet), ROUND (y - 37*size*sizeNChet));
+    txLine (ROUND (x + 19*size), ROUND (y -  4*size), ROUND (x + 39*size*sizeChet),  ROUND (y -  7*size*sizeChet));
+    txLine (ROUND (x + 20*size), ROUND (y +  9*size), ROUND (x + 37*size*sizeNChet), ROUND (y + 18*size*sizeNChet));
+    txLine (ROUND (x +  8*size), ROUND (y + 18*size), ROUND (x + 16*size*sizeChet),  ROUND (y + 36*size*sizeChet));
+    txLine (ROUND (x),           ROUND (y + 20*size), ROUND (x),                     ROUND (y + 63*size*sizeNChet));
+    txLine (ROUND (x),           ROUND (y - 20*size), ROUND (x),                     ROUND (y - 63*size*sizeChet));
+    txLine (ROUND (x -  8*size), ROUND (y + 18*size), ROUND (x - 16*size*sizeNChet), ROUND (y + 36*size*sizeNChet));
+    txLine (ROUND (x - 15*size), ROUND (y - 14*size), ROUND (x - 40*size*sizeChet),  ROUND (y - 37*size*sizeChet));
+    txLine (ROUND (x - 20*size), ROUND (y +  9*size), ROUND (x - 37*size*sizeNChet), ROUND (y + 18*size*sizeNChet));
+    txLine (ROUND (x - 19*size), ROUND (y -  4*size), ROUND (x - 39*size*sizeChet),  ROUND (y -  7*size*sizeChet));
+
+    txSetColor (TX_BLACK, 1);
+    txSetFillColor (TX_WHITE);
+    txCircle (ROUND (x - 10*size*EyeLeftX),  ROUND (y - 10*size*EyeLeftUp),  4*size*sizeEyse);
+    txCircle (ROUND (x + 10*size*EyeRightX), ROUND (y - 10*size*EyeRightUp), 4*size*sizeEyse);
+    txSetFillColor (TX_BLACK);
+    txCircle (ROUND (x -  9*size*EyeLeftX),  ROUND (y - 10*size*EyeLeftUp),  2.7*size*sizeEyse);
+    txCircle (ROUND (x + 11*size*EyeRightX), ROUND (y - 10*size*EyeRightUp), 2.7*size*sizeEyse);
+
+    txSetFillColor (TX_TRANSPARENT);
+    POINT smile [5] = {{ROUND (x - 11*size), ROUND (y + 7*size)}, {ROUND (x),          ROUND (y + 13*size)},
+                       {ROUND (x + 11*size), ROUND (y + 7*size)}, {ROUND (x + 5*size), ROUND (y +  9*size)},
+                       {ROUND (x -  5*size), ROUND (y + 9*size)}};
+    txPolygon (smile, 5);
+    }
+}
