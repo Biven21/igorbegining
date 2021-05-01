@@ -7,6 +7,17 @@
 // (c) Bochkarev Igor V, teachar at school number 175 in Samara.  //
 //                                                                //
 //@date                  01/05/2021                               //
+//{
+//==================================================================
+//!
+//!@note  Библиотека начинающего программиста  BivenLib.h
+//!       это собрание персонажей анимации первого мультика-программы
+//!       в первой версии в библиотеку включены следующие функции-персонажи
+//!       BoyDraw -   мужчина
+//!       SunDraw -   солнце
+//!       TreeDraw -  дерево
+//!       HouseDraw - домик
+//!}
 //==================================================================
 
 #ifndef BIVENLIB_H_INCLUDED
@@ -18,13 +29,31 @@
 
 namespace Biven
 {
-void BoyDraw   (int x, int y, double sizeX, double sizeY, int shovelUp,
-              double LeftKneeX,  double LeftKneeY,  double LeftFootX,  double LeftFootY,
-              double RightKneeX, double RightKneeY, double RightFootX, double RightFootY);
 void HouseDraw (int x, int y, double sizeX, double sizeY, double GableUp, double GableX, double roofRight, double roofLeft);
 void TreeDraw  (int x, int y, double sizeX, double sizeY);
 void SunDraw   (int x, int y, double size, double sizeChet, double sizeNChet, double sizeEyse,
-              double EyeLeftX, double EyeRightX, double EyeLeftUp, double EyeRightUp );
+               double EyeLeftX, double EyeRightX, double EyeLeftUp, double EyeRightUp );
+
+//!{================================================================================================
+//! рисуем мужчину, относительный центр координат находится в точки соприкосновения головы и туловища.
+//!
+//!@param x           x - координата по горизонтальной оси точки отсчета мужчины,
+//!@param y           y - координато по оси y (направлена вниз),
+//!@param sizeX        - размер масштабирования по оси х,
+//!@param sizeY        - размер масштабирования по оси Y,
+//!@param shovelUp     - параметр отвечает за поднятие лопаты 1 - лопата внизу  (-1) лопата поднята вверх ,
+//!@param LeftKneeX    - параметр отвечает за расположение левого колена по оси Х,
+//!@param LeftKneeY    - параметр отвечает за расположение левого колена по оси Y,
+//!@param LeftFootX    - параметр отвечает за расположение левой стопы по оси Х
+//!@param LeftFootY    - параметр отвечает за расположение левой стопы по оси Y
+//!@param RightKneeX   - параметр отвечает за расположение правого колена по оси Х,
+//!@param RightKneeY   - параметр отвечает за расположение правого колена по оси Y,
+//!@param RightFootX   - параметр отвечает за расположение левой стопы по оси Х
+//!@param RightFootY   - параметр отвечает за расположение левой стопы по оси Y
+//!
+//!@note  мужчина пока с прямыми руками, но планируются локти с возможностями копяния лопатой.
+//!
+//}==================================================================================================
 
 
 void BoyDraw (int x, int y, double sizeX, double sizeY, int shovelUp,
