@@ -406,7 +406,7 @@ void EndTitles ()
 
         txSetColor (TX_BLACK, 20);
         txSelectFont ("Tahoma", 40);
-        txTextOut  (1200 - t*3, 100, "опнднкфемхе якедсер");
+        txTextOut  (1200 - t*3, 100, "TO BE CONTINUED");
 
         t ++;
         txSleep (10);
@@ -449,7 +449,7 @@ void Village ()
 void PlantingGarden ()
     {
     int t = 0;
-    while (t < 500)
+    while (t < 520)
         {
         txClear   ();
         Landscape ();
