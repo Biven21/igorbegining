@@ -38,7 +38,7 @@ void BoyDraw (int x, int y, double sizeX, double sizeY, int shovelUp,
               double RightKneeX, double RightKneeY, double RightFootX, double RightFootY);
 
 //!{================================================================================================
-//! рисуем мужчину, относительный центр координат находится в точки соприкосновения головы и туловища.
+//! рисуем мужчину, относительный центр координат находится в точке соприкосновения головы и туловища.
 //!
 //!@param x           x - координата по горизонтальной оси точки отсчета мужчины,
 //!@param y           y - координато по оси y (направлена вниз),
@@ -157,6 +157,7 @@ void TreeDraw (int x, int y, double sizeX, double sizeY)
     txCircle (x +  9*sizeX, y - 37*sizeY, 3 * (sizeX + sizeY));
     txCircle (x -  4*sizeX, y - 39*sizeY, 3 * (sizeX + sizeY));
     }
+
 void SunDraw (int x, int y, double size, double sizeChet, double sizeNChet, double sizeEyse,
               double EyeLeftX, double EyeRightX, double EyeLeftUp, double EyeRightUp )
     {
