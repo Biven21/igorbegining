@@ -82,8 +82,8 @@ void BoyDraw (int x, int y, double sizeX, double sizeY, int shovelUp,
               double LeftKneeX,  double LeftKneeY,  double LeftFootX,  double LeftFootY,
               double RightKneeX, double RightKneeY, double RightFootX, double RightFootY)
     {
-    txSetColor  (TX_GREEN);
-    txCircle    (x, y - 5*sizeY, 5*((sizeX + sizeY) / 2));
+    txSetColor (TX_GREEN);
+    txCircle   (x, y - 5*sizeY, 5*((sizeX + sizeY) / 2));
 
     txSetColor      (TX_BLACK, 2);
     txSetFillColor  (TX_RED);
@@ -110,23 +110,23 @@ void BoyDraw (int x, int y, double sizeX, double sizeY, int shovelUp,
 
 void HouseDraw (int x, int y, double sizeX, double sizeY, double GableUp, double GableX, double roofRight, double roofLeft)
     {
-    txSetColor      (TX_GREEN);
+    txSetColor (TX_GREEN);
 
-    txSetFillColor  (TX_GREEN);
+    txSetFillColor (TX_GREEN);
     txRectangle (x - 100*sizeX, y - 70*sizeY, x, y);
 
-    txSetFillColor  (TX_LIGHTGRAY);
+    txSetFillColor (TX_LIGHTGRAY);
     txRectangle (x - 36*sizeX, y - 42*sizeY, x - 15*sizeX, y);
 
-    txSetFillColor  (TX_YELLOW);
+    txSetFillColor (TX_YELLOW);
     txRectangle (x - 79*sizeX, y - 42*sizeY, x - 65*sizeX, y - 22*sizeY);
     txLine      (x - 73*sizeX, y - 42*sizeY, x - 73*sizeX, y - 22*sizeY);
 
-    txSetFillColor  (TX_RED);
+    txSetFillColor (TX_RED);
     POINT roof [3] = {{ROUND (x - 120*sizeX*roofLeft),  ROUND (y -  70*sizeY)},
                       {ROUND (x -  50*sizeX*GableX),    ROUND (y - 128*sizeY*GableUp)},
                       {ROUND (x +  20*sizeX*roofRight), ROUND (y -  70*sizeY)}};
-    txPolygon  (roof, 3);
+    txPolygon (roof, 3);
 
     txSetFillColor  (TX_BROWN);
     POINT chimney [4] = {{ROUND (x - 85*sizeX), ROUND (y - 99*sizeY)},          {ROUND (x - 85*sizeX), ROUND (y - 117*sizeY*GableUp)},
@@ -139,7 +139,7 @@ void TreeDraw (int x, int y, double sizeX, double sizeY)
     txSetColor (TX_BROWN, 4);
     txLine   (x, y, x, y - 30 * sizeY);
 
-    txSetColor  (TX_BROWN, 2);
+    txSetColor (TX_BROWN, 2);
     txLine   (x,           y -  8*sizeY, x +  9*sizeX, y - 20*sizeY);
     txLine   (x +  9*sizeX, y - 20*sizeY, x + 18*sizeX, y - 23*sizeY);
     txLine   (x,            y - 13*sizeY, x -  9*sizeX, y - 20*sizeY);
@@ -147,7 +147,7 @@ void TreeDraw (int x, int y, double sizeX, double sizeY)
     txLine   (x,            y - 20*sizeY, x +  9*sizeX, y - 37*sizeY);
     txLine   (x,            y - 30*sizeY, x -  4*sizeX, y - 39*sizeY);
 
-    txSetColor  (TX_GREEN, 2);
+    txSetColor (TX_GREEN, 2);
     txSetFillColor (TX_GREEN);
     txCircle (x,            y - 30*sizeY, 3 * (sizeX + sizeY));
     txCircle (x +  9*sizeX, y - 20*sizeY, 3 * (sizeX + sizeY));

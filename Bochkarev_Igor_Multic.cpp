@@ -60,17 +60,17 @@ int main()
 void girlDraw (int x, int y, double sizeX, double sizeY, double wind)
     {
     txSetColor  (TX_GREEN);
-    txCircle    (x,      y -  4*sizeY, 4*((sizeX + sizeY)/3));
+    txCircle    (x, y -  4*sizeY, 4*((sizeX + sizeY)/3));
 
     txSetFillColor  (TX_BLUE);
     POINT girlDress [3] = {{ROUND (x), ROUND (y)}, {ROUND (x - 3*sizeX), ROUND (y + 12*sizeY)}, {ROUND (x + 4*sizeX), ROUND (y + 12*sizeY)}};
     txPolygon       (girlDress, 3);
 
-    txLine      (ROUND (x -  2*sizeX), ROUND (y + 12*sizeY), ROUND (x -  3*sizeX), ROUND (y + 24*sizeY));
-    txLine      (ROUND (x +  1*sizeX), ROUND (y + 12*sizeY), ROUND (x +  4*sizeX), ROUND (y + 24*sizeY));
-    txLine      (ROUND (x +  2*sizeX), ROUND (y +  5*sizeY), ROUND (x -  9*sizeX), ROUND (y)           );
-    txLine      (ROUND (x +  1*sizeX), ROUND (y +  5*sizeY), ROUND (x + 10*sizeX), ROUND (y -  1*sizeY));
-    txLine      (ROUND (x + 10*sizeX), ROUND (y -  8*sizeY), ROUND (x + 10*sizeX), ROUND (y +  1*sizeY));
+    txLine (ROUND (x -  2*sizeX), ROUND (y + 12*sizeY), ROUND (x -  3*sizeX), ROUND (y + 24*sizeY));
+    txLine (ROUND (x +  1*sizeX), ROUND (y + 12*sizeY), ROUND (x +  4*sizeX), ROUND (y + 24*sizeY));
+    txLine (ROUND (x +  2*sizeX), ROUND (y +  5*sizeY), ROUND (x -  9*sizeX), ROUND (y)           );
+    txLine (ROUND (x +  1*sizeX), ROUND (y +  5*sizeY), ROUND (x + 10*sizeX), ROUND (y -  1*sizeY));
+    txLine (ROUND (x + 10*sizeX), ROUND (y -  8*sizeY), ROUND (x + 10*sizeX), ROUND (y +  1*sizeY));
 
     txSetFillColor (TX_RED);
     POINT flag [3] = {{ROUND (x + 10*sizeX), ROUND (y - 8*sizeY)}, {ROUND (x + 19*sizeX), ROUND (y - 6*sizeY*wind)}, {ROUND (x + 10*sizeX), ROUND (y - 4*sizeY)}};
@@ -355,12 +355,15 @@ void ConstructionCamp ()
         BoyDraw ( 50 + t/5, 600 - t/4, 2, 2, 1,
                 ((t + 2) / 20) % 2 * 2,        ((t + 2) / 20) % 2 * 7,        ((t + 2) / 20) % 2,        ((t + 2) / 20) % 2 * 7,
                 ((t / 20) % 2 * (-1) + 1) * 2, ((t / 20) % 2 * (-1) + 1) * 7, ((t / 20) % 2 * (-1) + 1), ((t / 20) % 2 * (-1) + 1) * 7);
+
         BoyDraw (100 + t/5, 600 - t/3, 2, 2, 1,
                 ((t + 2) / 20) % 2 * 2,        ((t + 2) / 20) % 2 * 7,        ((t + 2) / 20) % 2,        ((t + 2) / 20) % 2 * 7,
                 ((t / 20) % 2 * (-1) + 1) * 2, ((t / 20) % 2 * (-1) + 1) * 7, ((t / 20) % 2 * (-1) + 1), ((t / 20) % 2 * (-1) + 1) * 7);
+
         BoyDraw (150 + t/5, 600 - t*10/25, 2, 2, 1,
                 ((t + 2) / 20) % 2 * 2,        ((t + 2) / 20) % 2 * 7,        ((t + 2) / 20) % 2,        ((t + 2) / 20) % 2 * 7,
                 ((t / 20) % 2 * (-1) + 1) * 2, ((t / 20) % 2 * (-1) + 1) * 7, ((t / 20) % 2 * (-1) + 1), ((t / 20) % 2 * (-1) + 1) * 7);
+
         BoyDraw (200 + t/4, 600 - t/4, 2, 2, 1,
                 ((t + 2) / 20) % 2 * 2,        ((t + 2) / 20) % 2 * 7,        ((t + 2) / 20) % 2,        ((t + 2) / 20) % 2 * 7,
                 ((t / 20) % 2 * (-1) + 1) * 2, ((t / 20) % 2 * (-1) + 1) * 7, ((t / 20) % 2 * (-1) + 1), ((t / 20) % 2 * (-1) + 1) * 7);
@@ -368,12 +371,15 @@ void ConstructionCamp ()
         BoyDraw (250 + t/5, 600 - t/5, 2, 2, 1,
                 ((t + 2) / 20) % 2 * 2,        ((t + 2) / 20) % 2 * 7,        ((t + 2) / 20) % 2,        ((t + 2) / 20) % 2 * 7,
                 ((t / 20) % 2 * (-1) + 1) * 2, ((t / 20) % 2 * (-1) + 1) * 7, ((t / 20) % 2 * (-1) + 1), ((t / 20) % 2 * (-1) + 1) * 7);
+
         BoyDraw (300 + t/5, 600 - t*10/25, 2, 2, 1,
                 ((t + 2) / 20) % 2 * 2,        ((t + 2) / 20) % 2 * 7,        ((t + 2) / 20) % 2,        ((t + 2) / 20) % 2 * 7,
                 ((t / 20) % 2 * (-1) + 1) * 2, ((t / 20) % 2 * (-1) + 1) * 7, ((t / 20) % 2 * (-1) + 1), ((t / 20) % 2 * (-1) + 1) * 7);
+
         BoyDraw (350 + t/5, 600 - t*10/25, 2, 2, 1,
                 ((t + 2) / 20) % 2 * 2,        ((t + 2) / 20) % 2 * 7,        ((t + 2) / 20) % 2,        ((t + 2) / 20) % 2 * 7,
                 ((t / 20) % 2 * (-1) + 1) * 2, ((t / 20) % 2 * (-1) + 1) * 7, ((t / 20) % 2 * (-1) + 1), ((t / 20) % 2 * (-1) + 1) * 7);
+
         BoyDraw (400 + t/5, 600 - t/5, 2, 2, 1,
                 ((t + 2) / 20) % 2 * 2,        ((t + 2) / 20) % 2 * 7,        ((t + 2) / 20) % 2,        ((t + 2) / 20) % 2 * 7,
                 ((t / 20) % 2 * (-1) + 1) * 2, ((t / 20) % 2 * (-1) + 1) * 7, ((t / 20) % 2 * (-1) + 1), ((t / 20) % 2 * (-1) + 1) * 7);
@@ -396,8 +402,8 @@ void EndTitles ()
         Village ();
         HeightGardenEnd ();
 
-        SunDraw   (- 10 + t*3, 70 - t/10, 2, 1, 1, 1, 1, 1, 1, 1);
-        SunDraw   (-400 + t*3, 70 - t/10, 2, 1, 1, 1, 1, 1, 1, 1);
+        SunDraw (- 10 + t*3, 70 - t/10, 2, 1, 1, 1, 1, 1, 1, 1);
+        SunDraw (-400 + t*3, 70 - t/10, 2, 1, 1, 1, 1, 1, 1, 1);
 
         txSetColor (TX_BLACK, 20);
         txSelectFont ("Tahoma", 40);
@@ -431,12 +437,12 @@ void Housbilding (int x)
 
 void Village ()
     {
-    HouseDraw (150, 521,  1,   1,   1,    1,   1,   1);
-    HouseDraw (450, 521,  1,   1,   1,    1,   1,   1);
-    HouseDraw (650, 521,  1,   1,   1,    1,   1,   1);
-    HouseDraw (657, 621,  1,   1,   1,    1,   1,   1);
-    HouseDraw (150, 621,  1,   1,   1,    1,   1,   1);
-    HouseDraw (450, 621,  1,   1,   1,    1,   1,   1);
+    HouseDraw (150, 521,  1, 1, 1, 1, 1, 1);
+    HouseDraw (450, 521,  1, 1, 1, 1, 1, 1);
+    HouseDraw (650, 521,  1, 1, 1, 1, 1, 1);
+    HouseDraw (657, 621,  1, 1, 1, 1, 1, 1);
+    HouseDraw (150, 621,  1, 1, 1, 1, 1, 1);
+    HouseDraw (450, 621,  1, 1, 1, 1, 1, 1);
     }
 
 //-----------------------------------------------------------------------------
