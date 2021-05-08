@@ -32,10 +32,11 @@ namespace Biven
 void HouseDraw (int x, int y, double sizeX, double sizeY, double GableUp, double GableX, double roofRight, double roofLeft);
 void TreeDraw  (int x, int y, double sizeX, double sizeY);
 void SunDraw   (int x, int y, double size, double sizeChet, double sizeNChet, double sizeEyse,
-               double EyeLeftX, double EyeRightX, double EyeLeftUp, double EyeRightUp );
-void BoyDraw (int x, int y, double sizeX, double sizeY, int shovelUp,
-              double LeftKneeX,  double LeftKneeY,  double LeftFootX,  double LeftFootY,
-              double RightKneeX, double RightKneeY, double RightFootX, double RightFootY);
+                double EyeLeftX, double EyeRightX, double EyeLeftUp, double EyeRightUp );
+void BoyDraw   (int x, int y, double sizeX, double sizeY, int shovelUp,
+                double LeftKneeX,  double LeftKneeY,  double LeftFootX,  double LeftFootY,
+                double RightKneeX, double RightKneeY, double RightFootX, double RightFootY);
+void StarShip  (int x, int y, double sizeShip);
 
 //!{================================================================================================
 //! рисуем мужчину, относительный центр координат находится в точке соприкосновения головы и туловища.
@@ -64,11 +65,11 @@ void BoyDraw (int x, int y, double sizeX, double sizeY, int shovelUp,
 //!       в предлагаемом примере величина смещения равна 2.
 //!       пример кода будет выглядеть следующим образом:
 //!       \code
-//!       BoyDraw ( 50 + 0.2*t, 600 - 0.25*t, 2, 2, 1,
+//!       BoyDraw ( 50 + t / 5, 600 - t / 4, 2, 2, 1,
 //!               ((t + 2) / 20) % 2 * 2,        ((t + 2) / 20) % 2 * 7,
-//!               ((t + 2) / 20) % 2,        ((t + 2) / 20) % 2 * 7,
+//!               ((t + 2) / 20) % 2,            ((t + 2) / 20) % 2 * 7,
 //!               ((t / 20) % 2 * (-1) + 1) * 2, ((t / 20) % 2 * (-1) + 1) * 7,
-//!               ((t / 20) % 2 * (-1) + 1), ((t / 20) % 2 * (-1) + 1) * 7);
+//!               ((t / 20) % 2 * (-1) + 1),     ((t / 20) % 2 * (-1) + 1) * 7);
 //!
 //!       \endcode
 //!
@@ -158,6 +159,8 @@ void TreeDraw (int x, int y, double sizeX, double sizeY)
     txCircle (x -  4*sizeX, y - 39*sizeY, 3 * (sizeX + sizeY));
     }
 
+//-----------------------------------------------------------------------------
+
 void SunDraw (int x, int y, double size, double sizeChet, double sizeNChet, double sizeEyse,
               double EyeLeftX, double EyeRightX, double EyeLeftUp, double EyeRightUp )
     {
@@ -189,4 +192,33 @@ void SunDraw (int x, int y, double size, double sizeChet, double sizeNChet, doub
                        {ROUND (x -  5*size), ROUND (y + 9*size)}};
     txPolygon (smile, 5);
     }
+
+//-----------------------------------------------------------------------------
+
+    void StarShip (int x, int y, double sizeShip)
+    {
+    txSetColor (TX_BLACK, 4);
+    txEllipse (ROUND (x - 60.0*sizeShip), ROUND (y - 24.7*sizeShip), ROUND (x + 60.0*sizeShip), ROUND (y + 24.7*sizeShip));
+    txLine    (ROUND (x - 60.1*sizeShip), ROUND (y),                 ROUND (x - 54.0*sizeShip), ROUND (y + 16.7*sizeShip));
+    txLine    (ROUND (x - 54.0*sizeShip), ROUND (y + 16.7*sizeShip), ROUND (x),                 ROUND (y + 54.7*sizeShip));
+    txLine    (ROUND (x),                 ROUND (y + 54.7*sizeShip), ROUND (x + 53.7*sizeShip), ROUND (y + 24.7*sizeShip));
+    txLine    (ROUND (x + 53.7*sizeShip), ROUND (y + 24.7*sizeShip), ROUND (x + 59.7*sizeShip), ROUND (y +  2.2*sizeShip));
+    txLine    (ROUND (x),                 ROUND (y - 96.1*sizeShip), ROUND (x - 59.1*sizeShip), ROUND (y -  4.3*sizeShip));
+    txLine    (ROUND (x),                 ROUND (y - 96.1*sizeShip), ROUND (x - 44.5*sizeShip), ROUND (y + 16.6*sizeShip));
+    txLine    (ROUND (x),                 ROUND (y - 96.1*sizeShip), ROUND (x + 41.9*sizeShip), ROUND (y + 17.7*sizeShip));
+    txLine    (ROUND (x),                 ROUND (y - 96.1*sizeShip), ROUND (x + 59.0*sizeShip), ROUND (y -  4.5*sizeShip));
+    txLine    (ROUND (x),                 ROUND (y + 54.7*sizeShip), ROUND (x),                 ROUND (y + 24.7*sizeShip));
+
+    POINT Support1 [3] = {{ROUND (x - 47.6*sizeShip), ROUND (y + 21.2*sizeShip)}, {ROUND (x - 43.5*sizeShip), ROUND (y + 49.9*sizeShip)}, {ROUND (x - 40.2*sizeShip), ROUND (y + 26.4*sizeShip)}};
+    txPolygon (Support1, 3);
+    POINT Support2 [3] = {{ROUND (x - 27*sizeShip),   ROUND (y + 75.1*sizeShip)}, {ROUND (x - 28.9*sizeShip), ROUND (y + 24.7*sizeShip)}, {ROUND (x - 16.5*sizeShip), ROUND (y + 30.4*sizeShip)}};
+    txPolygon (Support2, 3);
+    POINT Support3 [3] = {{ROUND (x + 30.2*sizeShip), ROUND (y + 78.2*sizeShip)}, {ROUND (x + 33.5*sizeShip), ROUND (y + 24.7*sizeShip)}, {ROUND (x + 15.6*sizeShip), ROUND (y + 30.4*sizeShip)}};
+    txPolygon (Support3, 3);
+    POINT Support4 [3] = {{ROUND (x + 48.3*sizeShip), ROUND (y + 57.7*sizeShip)}, {ROUND (x + 38.6*sizeShip), ROUND (y + 33.1*sizeShip)}, {ROUND (x + 48.3*sizeShip), ROUND (y + 27.7*sizeShip)}};
+    txPolygon (Support4, 3);
+    }
+
+//-----------------------------------------------------------------------------
+
 }
