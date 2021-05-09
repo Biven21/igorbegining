@@ -16,7 +16,7 @@ using namespace Biven;
 
 void girlDraw    (int x, int y, double sizeX, double sizeY, double wind);
 void FirDraw     (int x, int y, double sizeX, double sizeY, double Wind);
-void BackGround  ();
+//void BackGround  ();
 void StartTitles ();
 void ArrivalStarShip (int x);
 void Landscape   ();
