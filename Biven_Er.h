@@ -1,7 +1,8 @@
 #ifndef BIVEN_ER_H_INCLUDED
 #define BIVEN_ER_H_INCLUDED
 
-
+namespace igor
+{
 
 void HouseDraw   (int x, int y, double sizeX, double sizeY, double GableUp, double GableX, double roofRight, double roofLeft);
 void BoyDraw (int x, int y, double sizeX, double sizeY, int shovelUp,
@@ -71,6 +72,6 @@ void BoyDraw (int x, int y, double sizeX, double sizeY, int shovelUp,
     }
 //-----------------------------------------------------------------------------
 
-
+}
 
 #endif // BIVEN_ER_H_INCLUDED
