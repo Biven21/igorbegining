@@ -13,6 +13,8 @@
 #include "Biven_Er.h"
 
 
+using namespace igor;
+
 void SunDraw     (int x, int y, double size,  double sizeChet, double sizeNChet, double sizeEyse,
                  double EyeLeftX, double EyeRightX, double EyeLeftUp, double EyeRightUp);
 void girlDraw    (int x, int y, double sizeX, double sizeY, double wind);
