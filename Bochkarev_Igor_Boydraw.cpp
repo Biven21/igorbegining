@@ -18,7 +18,7 @@ void girlDraw    (int x, int y, double sizeX, double sizeY, double wind);
 void FirDraw     (int x, int y, double sizeX, double sizeY, double Wind);
 void BackGround  ();
 void StartTitles ();
-void StarShip    (int x, int y, double sizeShip);
+//void StarShip    (int x, int y, double sizeShip);
 void ArrivalStarShip (int x);
 void Landscape   ();
 void Serenity    ();
@@ -41,15 +41,15 @@ int main()
     txSetFillColor  (TX_WHITE);
     txRectangle     ( 10,  10, 1190, 690);
 
-    //StartTitles ();
-    //txSleep (1000);
-    //Serenity ();
-    //Disembarkation ();
-    //Solstice ();
-    //Disembarkation ();
+    StartTitles ();
+    txSleep (1000);
+    Serenity ();
+    Disembarkation ();
+    Solstice ();
+    Disembarkation ();
     ConstructionCamp ();
     PlantingGarden ();
-    //EndTitles ();
+    EndTitles ();
 
     return 0;
     }
@@ -200,31 +200,6 @@ void StartTitles ()
 
 //-----------------------------------------------------------------------------
 
-void StarShip (int x, int y, double sizeShip)
-    {
-    txSetColor (TX_BLACK, 4);
-    txEllipse (ROUND (x - 60.0*sizeShip), ROUND (y - 24.7*sizeShip), ROUND (x + 60.0*sizeShip), ROUND (y + 24.7*sizeShip));
-    txLine    (ROUND (x - 60.1*sizeShip), ROUND (y),                 ROUND (x - 54.0*sizeShip), ROUND (y + 16.7*sizeShip));
-    txLine    (ROUND (x - 54.0*sizeShip), ROUND (y + 16.7*sizeShip), ROUND (x),                 ROUND (y + 54.7*sizeShip));
-    txLine    (ROUND (x),                 ROUND (y + 54.7*sizeShip), ROUND (x + 53.7*sizeShip), ROUND (y + 24.7*sizeShip));
-    txLine    (ROUND (x + 53.7*sizeShip), ROUND (y + 24.7*sizeShip), ROUND (x + 59.7*sizeShip), ROUND (y +  2.2*sizeShip));
-    txLine    (ROUND (x),                 ROUND (y - 96.1*sizeShip), ROUND (x - 59.1*sizeShip), ROUND (y -  4.3*sizeShip));
-    txLine    (ROUND (x),                 ROUND (y - 96.1*sizeShip), ROUND (x - 44.5*sizeShip), ROUND (y + 16.6*sizeShip));
-    txLine    (ROUND (x),                 ROUND (y - 96.1*sizeShip), ROUND (x + 41.9*sizeShip), ROUND (y + 17.7*sizeShip));
-    txLine    (ROUND (x),                 ROUND (y - 96.1*sizeShip), ROUND (x + 59.0*sizeShip), ROUND (y -  4.5*sizeShip));
-    txLine    (ROUND (x),                 ROUND (y + 54.7*sizeShip), ROUND (x),                 ROUND (y + 24.7*sizeShip));
-
-    POINT Support1 [3] = {{ROUND (x - 47.6*sizeShip), ROUND (y + 21.2*sizeShip)}, {ROUND (x - 43.5*sizeShip), ROUND (y + 49.9*sizeShip)}, {ROUND (x - 40.2*sizeShip), ROUND (y + 26.4*sizeShip)}};
-    txPolygon (Support1, 3);
-    POINT Support2 [3] = {{ROUND (x - 27*sizeShip),   ROUND (y + 75.1*sizeShip)}, {ROUND (x - 28.9*sizeShip), ROUND (y + 24.7*sizeShip)}, {ROUND (x - 16.5*sizeShip), ROUND (y + 30.4*sizeShip)}};
-    txPolygon (Support2, 3);
-    POINT Support3 [3] = {{ROUND (x + 30.2*sizeShip), ROUND (y + 78.2*sizeShip)}, {ROUND (x + 33.5*sizeShip), ROUND (y + 24.7*sizeShip)}, {ROUND (x + 15.6*sizeShip), ROUND (y + 30.4*sizeShip)}};
-    txPolygon (Support3, 3);
-    POINT Support4 [3] = {{ROUND (x + 48.3*sizeShip), ROUND (y + 57.7*sizeShip)}, {ROUND (x + 38.6*sizeShip), ROUND (y + 33.1*sizeShip)}, {ROUND (x + 48.3*sizeShip), ROUND (y + 27.7*sizeShip)}};
-    txPolygon (Support4, 3);
-    }
-
-//-----------------------------------------------------------------------------
 
 void ArrivalStarShip (int x)
     {
@@ -233,8 +208,8 @@ void ArrivalStarShip (int x)
         {
         txClear   ();
         Landscape ();
-        StarShip  (1000 - t,     10 + t, 1);
-        StarShip  (1100 - t / 2, 10 + t, 1);
+        StarShip  (1000 - t,     10 + t, 1.1);
+        StarShip  (1100 - t / 2, 10 + t, 1.1);
         t ++;
         txSleep (x);
         }
@@ -550,5 +525,4 @@ void HeightGardenEnd ()
     }
 
 //-----------------------------------------------------------------------------
-
 
