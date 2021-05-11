@@ -15,15 +15,11 @@
 
 using namespace igor;
 
-void SunDraw     (int x, int y, double size,  double sizeChet, double sizeNChet, double sizeEyse,
-                 double EyeLeftX, double EyeRightX, double EyeLeftUp, double EyeRightUp);
-void girlDraw    (int x, int y, double sizeX, double sizeY, double wind);
 
 void FirDraw     (int x, int y, double sizeX, double sizeY, double Wind);
-void TreeDraw    (int x, int y); //, double sizeX, double sizeY
+
 void BackGround  ();
 void StartTitles ();
-void StarShip    (int x, int y, double sizeShip);
 void ArrivalStarShip (int x);
 void Landscape   ();
 void Serenity    ();
@@ -61,64 +57,6 @@ int main()
 
 //-----------------------------------------------------------------------------
 
-void SunDraw (int x, int y, double size, double sizeChet, double sizeNChet, double sizeEyse,
-              double EyeLeftX, double EyeRightX, double EyeLeftUp, double EyeRightUp )
-    {
-    txSetColor     (TX_YELLOW, 4);
-    txSetFillColor (TX_YELLOW);
-    txCircle (x, y, 20*size);
-    txLine (ROUND (x + 15*size), ROUND (y - 14*size), ROUND (x + 40*size*sizeNChet), ROUND (y - 37*size*sizeNChet));
-    txLine (ROUND (x + 19*size), ROUND (y -  4*size), ROUND (x + 39*size*sizeChet),  ROUND (y -  7*size*sizeChet));
-    txLine (ROUND (x + 20*size), ROUND (y +  9*size), ROUND (x + 37*size*sizeNChet), ROUND (y + 18*size*sizeNChet));
-    txLine (ROUND (x +  8*size), ROUND (y + 18*size), ROUND (x + 16*size*sizeChet),  ROUND (y + 36*size*sizeChet));
-    txLine (ROUND (x),           ROUND (y + 20*size), ROUND (x),                     ROUND (y + 63*size*sizeNChet));
-    txLine (ROUND (x),           ROUND (y - 20*size), ROUND (x),                     ROUND (y - 63*size*sizeChet));
-    txLine (ROUND (x -  8*size), ROUND (y + 18*size), ROUND (x - 16*size*sizeNChet), ROUND (y + 36*size*sizeNChet));
-    txLine (ROUND (x - 15*size), ROUND (y - 14*size), ROUND (x - 40*size*sizeChet),  ROUND (y - 37*size*sizeChet));
-    txLine (ROUND (x - 20*size), ROUND (y +  9*size), ROUND (x - 37*size*sizeNChet), ROUND (y + 18*size*sizeNChet));
-    txLine (ROUND (x - 19*size), ROUND (y -  4*size), ROUND (x - 39*size*sizeChet),  ROUND (y -  7*size*sizeChet));
-
-    txSetColor (TX_BLACK, 1);
-    txSetFillColor (TX_WHITE);
-    txCircle (ROUND (x - 10*size*EyeLeftX),  ROUND (y - 10*size*EyeLeftUp),  4*size*sizeEyse);
-    txCircle (ROUND (x + 10*size*EyeRightX), ROUND (y - 10*size*EyeRightUp), 4*size*sizeEyse);
-    txSetFillColor (TX_BLACK);
-    txCircle (ROUND (x -  9*size*EyeLeftX),  ROUND (y - 10*size*EyeLeftUp),  2.7*size*sizeEyse);
-    txCircle (ROUND (x + 11*size*EyeRightX), ROUND (y - 10*size*EyeRightUp), 2.7*size*sizeEyse);
-
-    txSetFillColor (TX_TRANSPARENT);
-    POINT smile [5] = {{ROUND (x - 11*size), ROUND (y + 7*size)}, {ROUND (x),          ROUND (y + 13*size)},
-                       {ROUND (x + 11*size), ROUND (y + 7*size)}, {ROUND (x + 5*size), ROUND (y +  9*size)},
-                       {ROUND (x -  5*size), ROUND (y + 9*size)}};
-    txPolygon (smile, 5);
-    }
-
-
-//-----------------------------------------------------------------------------
-
-void girlDraw (int x, int y, double sizeX, double sizeY, double wind)
-    {
-    txSetColor  (TX_GREEN);
-    txCircle    (x,      y -  4*sizeY, 4*((sizeX + sizeY)/3));
-
-    txSetFillColor  (TX_BLUE);
-    POINT girlDress [3] = {{ROUND (x), ROUND (y)}, {ROUND (x - 3*sizeX), ROUND (y + 12*sizeY)}, {ROUND (x + 4*sizeX), ROUND (y + 12*sizeY)}};
-    txPolygon       (girlDress, 3);
-
-    txLine      (ROUND (x -  2*sizeX), ROUND (y + 12*sizeY), ROUND (x -  3*sizeX), ROUND (y + 24*sizeY));
-    txLine      (ROUND (x +  1*sizeX), ROUND (y + 12*sizeY), ROUND (x +  4*sizeX), ROUND (y + 24*sizeY));
-    txLine      (ROUND (x +  2*sizeX), ROUND (y +  5*sizeY), ROUND (x -  9*sizeX), ROUND (y)           );
-    txLine      (ROUND (x +  1*sizeX), ROUND (y +  5*sizeY), ROUND (x + 10*sizeX), ROUND (y -  1*sizeY));
-    txLine      (ROUND (x + 10*sizeX), ROUND (y -  8*sizeY), ROUND (x + 10*sizeX), ROUND (y +  1*sizeY));
-
-    txSetFillColor (TX_RED);
-    POINT flag [3] = {{ROUND (x + 10*sizeX), ROUND (y - 8*sizeY)}, {ROUND (x + 19*sizeX), ROUND (y - 6*sizeY*wind)}, {ROUND (x + 10*sizeX), ROUND (y - 4*sizeY)}};
-    txPolygon   (flag, 3);
-    }
-
-
- //-----------------------------------------------------------------------------
-
 void FirDraw (int x, int y, double sizeX, double sizeY, double Wind)
     {
     txSetColor      (TX_BROWN, 2);
@@ -147,31 +85,6 @@ void FirDraw (int x, int y, double sizeX, double sizeY, double Wind)
 
 //-----------------------------------------------------------------------------
 
-void TreeDraw (int x, int y, double sizeX, double sizeY)
-    {
-    txSetColor (TX_BROWN, 4);
-    txLine   (x, y, x, y - 30 * sizeY);
-
-    txSetColor  (TX_BROWN, 2);
-    txLine   (x,            y -  8*sizeY, x +  9*sizeX, y - 20*sizeY);
-    txLine   (x +  9*sizeX, y - 20*sizeY, x + 18*sizeX, y - 23*sizeY);
-    txLine   (x,            y - 13*sizeY, x -  9*sizeX, y - 20*sizeY);
-    txLine   (x -  9*sizeX, y - 20*sizeY, x - 16*sizeX, y - 20*sizeY);
-    txLine   (x,            y - 20*sizeY, x +  9*sizeX, y - 37*sizeY);
-    txLine   (x,            y - 30*sizeY, x -  4*sizeX, y - 39*sizeY);
-
-    txSetColor  (TX_GREEN, 2);
-    txSetFillColor (TX_GREEN);
-    txCircle (x,            y - 30*sizeY, 3 * (sizeX + sizeY));
-    txCircle (x +  9*sizeX, y - 20*sizeY, 3 * (sizeX + sizeY));
-    txCircle (x + 18*sizeX, y - 23*sizeY, 3 * (sizeX + sizeY));
-    txCircle (x -  9*sizeX, y - 20*sizeY, 3 * (sizeX + sizeY));
-    txCircle (x - 16*sizeX, y - 20*sizeY, 3 * (sizeX + sizeY));
-    txCircle (x +  9*sizeX, y - 37*sizeY, 3 * (sizeX + sizeY));
-    txCircle (x -  4*sizeX, y - 39*sizeY, 3 * (sizeX + sizeY));
-    }
-
-//-----------------------------------------------------------------------------
 //_____________________________________________________________________________
 void BackGround ()
     {
@@ -259,31 +172,6 @@ void StartTitles ()
 
 //-----------------------------------------------------------------------------
 
-void StarShip (int x, int y, double sizeShip)
-    {
-    txSetColor (TX_BLACK, 4);
-    txEllipse (ROUND (x - 60.0*sizeShip), ROUND (y - 24.7*sizeShip), ROUND (x + 60.0*sizeShip), ROUND (y + 24.7*sizeShip));
-    txLine    (ROUND (x - 60.1*sizeShip), ROUND (y),                 ROUND (x - 54.0*sizeShip), ROUND (y + 16.7*sizeShip));
-    txLine    (ROUND (x - 54.0*sizeShip), ROUND (y + 16.7*sizeShip), ROUND (x),                 ROUND (y + 54.7*sizeShip));
-    txLine    (ROUND (x),                 ROUND (y + 54.7*sizeShip), ROUND (x + 53.7*sizeShip), ROUND (y + 24.7*sizeShip));
-    txLine    (ROUND (x + 53.7*sizeShip), ROUND (y + 24.7*sizeShip), ROUND (x + 59.7*sizeShip), ROUND (y +  2.2*sizeShip));
-    txLine    (ROUND (x),                 ROUND (y - 96.1*sizeShip), ROUND (x - 59.1*sizeShip), ROUND (y -  4.3*sizeShip));
-    txLine    (ROUND (x),                 ROUND (y - 96.1*sizeShip), ROUND (x - 44.5*sizeShip), ROUND (y + 16.6*sizeShip));
-    txLine    (ROUND (x),                 ROUND (y - 96.1*sizeShip), ROUND (x + 41.9*sizeShip), ROUND (y + 17.7*sizeShip));
-    txLine    (ROUND (x),                 ROUND (y - 96.1*sizeShip), ROUND (x + 59.0*sizeShip), ROUND (y -  4.5*sizeShip));
-    txLine    (ROUND (x),                 ROUND (y + 54.7*sizeShip), ROUND (x),                 ROUND (y + 24.7*sizeShip));
-
-    POINT Support1 [3] = {{ROUND (x - 47.6*sizeShip), ROUND (y + 21.2*sizeShip)}, {ROUND (x - 43.5*sizeShip), ROUND (y + 49.9*sizeShip)}, {ROUND (x - 40.2*sizeShip), ROUND (y + 26.4*sizeShip)}};
-    txPolygon (Support1, 3);
-    POINT Support2 [3] = {{ROUND (x - 27*sizeShip),   ROUND (y + 75.1*sizeShip)}, {ROUND (x - 28.9*sizeShip), ROUND (y + 24.7*sizeShip)}, {ROUND (x - 16.5*sizeShip), ROUND (y + 30.4*sizeShip)}};
-    txPolygon (Support2, 3);
-    POINT Support3 [3] = {{ROUND (x + 30.2*sizeShip), ROUND (y + 78.2*sizeShip)}, {ROUND (x + 33.5*sizeShip), ROUND (y + 24.7*sizeShip)}, {ROUND (x + 15.6*sizeShip), ROUND (y + 30.4*sizeShip)}};
-    txPolygon (Support3, 3);
-    POINT Support4 [3] = {{ROUND (x + 48.3*sizeShip), ROUND (y + 57.7*sizeShip)}, {ROUND (x + 38.6*sizeShip), ROUND (y + 33.1*sizeShip)}, {ROUND (x + 48.3*sizeShip), ROUND (y + 27.7*sizeShip)}};
-    txPolygon (Support4, 3);
-    }
-
-//-----------------------------------------------------------------------------
 
 void ArrivalStarShip (int x)
     {
@@ -487,8 +375,8 @@ void EndTitles ()
         Village ();
         HeightGardenEnd ();
 
-        SunDraw   (- 10 + t*3, 70 - t*0.1, 2, 1, 1, 1, 1, 1, 1, 1);
-        SunDraw   (-400 + t*3, 70 - t*0.1, 2, 1, 1, 1, 1, 1, 1, 1);
+        SunDraw (- 10 + t*3, 70 - t/10, 2, 1, 1, 1, 1, 1, 1, 1);
+        SunDraw (-400 + t*3, 70 - t/10, 2, 1, 1, 1, 1, 1, 1, 1);
 
         txSetColor (TX_BLACK, 20);
         txSelectFont ("Tahoma", 40);
@@ -547,31 +435,31 @@ void PlantingGarden ()
                  ((t / 20) % 2 * (-1) + 1) * 2, ((t / 20) % 2 * (-1) + 1) * 7,
                  ((t / 20) % 2 * (-1) + 1),     ((t / 20) % 2 * (-1) + 1) * 7);
 
-        girlDraw (770 + 0.01*t, 700 - 0.61*t, 2.5, 2.5, 2);
+        girlDraw (770 + t/100, 700 - 61*t/100, 2.5, 2.5, 2);
 
-        BoyDraw  (830 + 0.2*t, 700 - 0.51*t, 2, 2, 1,
+        BoyDraw  (830 + t/5, 700 - 51*t/100, 2, 2, 1,
                  ((t + 2) / 20) % 2 * 2,        ((t + 2) / 20) % 2 * 7,
                  ((t + 2) / 20) % 2,            ((t + 2) / 20) % 2 * 7,
                  ((t / 20) % 2 * (-1) + 1) * 2, ((t / 20) % 2 * (-1) + 1) * 7,
                  ((t / 20) % 2 * (-1) + 1),     ((t / 20) % 2 * (-1) + 1) * 7);
 
-        girlDraw (850 + 0.2*t, 700 - 0.51*t, 2.5, 2.5, 2);
+        girlDraw (850 + t/5, 700 - 51*t/100, 2.5, 2.5, 2);
 
-        BoyDraw  (900 + 0.3*t, 700 - 0.31*t, 2, 2, 1,
+        BoyDraw  (900 + 3*t/10, 700 - 31*t/100, 2, 2, 1,
                  ((t + 2) / 20) % 2 * 2,        ((t + 2) / 20) % 2 * 7,
                  ((t + 2) / 20) % 2,            ((t + 2) / 20) % 2 * 7,
                  ((t / 20) % 2 * (-1) + 1) * 2, ((t / 20) % 2 * (-1) + 1) * 7,
                  ((t / 20) % 2 * (-1) + 1),     ((t / 20) % 2 * (-1) + 1) * 7);
 
-        girlDraw (930 + 0.3*t, 700 - 0.31*t, 2.5, 2.5, 2);
+        girlDraw (930 + 3*t/10, 700 - 31*t/100, 2.5, 2.5, 2);
 
-        BoyDraw  (950 + 0.3*t, 700 - 0.21*t, 2, 2, 1,
+        BoyDraw  (950 + 3*t/10, 700 - 21*t/100, 2, 2, 1,
                  ((t + 2) / 20) % 2 * 2,        ((t + 2) / 20) % 2 * 7,
                  ((t + 2) / 20) % 2,            ((t + 2) / 20) % 2 * 7,
                  ((t / 20) % 2 * (-1) + 1) * 2, ((t / 20) % 2 * (-1) + 1) * 7,
                  ((t / 20) % 2 * (-1) + 1),     ((t / 20) % 2 * (-1) + 1) * 7);
 
-        girlDraw (970 + 0.3*t, 700 - 0.21*t, 2.5, 2.5, 2);
+        girlDraw (970 + 3*t/10, 700 - 21*t/100, 2.5, 2.5, 2);
 
         t++;
         txSleep (10);
