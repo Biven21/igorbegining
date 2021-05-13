@@ -24,7 +24,7 @@
 #define BIVENLIB_H_INCLUDED
 
 
-namespace Biven
+namespace biven
 {
 void HouseDraw (int x, int y, double sizeX, double sizeY, double GableUp, double GableX, double roofRight, double roofLeft);
 void TreeDraw  (int x, int y, double sizeX, double sizeY);
@@ -221,4 +221,4 @@ void SunDraw (int x, int y, double size, double sizeChet, double sizeNChet, doub
 //-----------------------------------------------------------------------------
 
 }
-#endif / / _BIVENLIB_H_INCLUDED
+#endif // _BIVENLIB_H_INCLUDED
