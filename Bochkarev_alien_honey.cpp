@@ -1,13 +1,14 @@
 #include "TXLib.h"
-#include "Biven_er.h"
+#include "BivenLib.h"
 #include "LFioninaLib.h"
 
-using namespace igor;
+using namespace biven;
 
 void Landscape ();
 void Village   ();
 void HeightGarden ();
-
+void BeeFlyby ();
+void GardenEnd ();
 
 int main ()
     {
@@ -18,6 +19,7 @@ int main ()
     Landscape ();
     Village ();
     HeightGarden ();
+    BeeFlyby ();
 
     return 0;
     }
@@ -108,4 +110,42 @@ void HeightGarden ()
         }
     txSleep (500);
     }
+//-----------------------------------------------------------------------------
+void GardenEnd ()
+    {
+    int t = 100;
+        TreeDraw (750,  600, 1 + t * 0.02, 1 + t * 0.02);
+        TreeDraw (850,  600, 1 + t * 0.02, 1 + t * 0.02);
+        TreeDraw (900,  600, 1 + t * 0.02, 1 + t * 0.02);
+        TreeDraw (1000, 600, 1 + t * 0.02, 1 + t * 0.02);
 
+        TreeDraw (900,  550, 1 + t * 0.02, 1 + t * 0.02);
+        TreeDraw (850,  550, 1 + t * 0.02, 1 + t * 0.02);
+        TreeDraw (750,  550, 1 + t * 0.02, 1 + t * 0.02);
+        TreeDraw (1000, 550, 1 + t * 0.02, 1 + t * 0.02);
+
+        TreeDraw (900,  500, 1 + t * 0.02, 1 + t * 0.02);
+        TreeDraw (850,  500, 1 + t * 0.02, 1 + t * 0.02);
+        TreeDraw (750,  500, 1 + t * 0.02, 1 + t * 0.02);
+        TreeDraw (1000, 500, 1 + t * 0.02, 1 + t * 0.02);
+    }
+
+//-----------------------------------------------------------------------------
+
+void BeeFlyby ()
+    {
+    int t = 0;
+    while (t <= 800)
+        {
+         txClear ();
+         Landscape ();
+         Village   ();
+         GardenEnd ();
+
+         BeeDraw (750 + t / 2, 500, 2);
+
+         t++;
+         txSleep (2);
+        }
+
+    }
