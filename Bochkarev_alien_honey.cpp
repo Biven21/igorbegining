@@ -135,14 +135,27 @@ void GardenEnd ()
 void BeeFlyby ()
     {
     int t = 0;
-    while (t <= 800)
+    while (t <= 1500)
         {
          txClear ();
          Landscape ();
          Village   ();
          GardenEnd ();
 
-         BeeDraw (750 + t / 2, 500, 2);
+         if (t < 700)
+            {
+             BeeDraw (750 + (t + 10) / 2, 500,                         1.5);
+             BeeDraw (750 + (t - 10) / 2, 450 + 50 / (1 + (t/4) %12),  1.5);
+             BeeDraw (750 + t / 2,        470 - 50 / (0.1 + (t/4) %6), 1.5);
+             BeeDraw (750 + (t - 30) / 2, 550 + 40 / (1 + (t/4) %20),  1.5);
+            }
+         else
+            {
+             BeeDraw (1105 - (t - 700 + 10) / 2, 500,                         1.5);
+             BeeDraw (1095 - (t - 700 - 10) / 2, 450 + 50 / (1 + (t/4) %12),  1.5);
+             BeeDraw (1000 - (t - 700) / 2,        470 - 50 / (0.1 + (t/4) %6), 1.5);
+             BeeDraw (1085 - (t - 300) / 4, 550 + 40 / (1 + (t/4) %20),  1.5);
+            }
 
          t++;
          txSleep (2);
