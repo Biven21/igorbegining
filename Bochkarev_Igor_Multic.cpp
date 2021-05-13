@@ -12,7 +12,7 @@
 #include "TXLib.h"
 #include "BivenLib.h"
 
-using namespace Biven;
+using namespace biven;
 
 void girlDraw    (int x, int y, double sizeX, double sizeY, double wind);
 void FirDraw     (int x, int y, double sizeX, double sizeY, double Wind);
