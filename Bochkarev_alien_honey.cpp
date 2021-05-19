@@ -1,7 +1,7 @@
-<<<<<<< HEAD
+
 #include "TXLib.h"
 #include "BivenLib.h"
-#include "LFioninaLib.h"
+#include "LFioninaSDK\LFioninaLib.h"
 
 using namespace biven;
 
