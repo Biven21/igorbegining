@@ -1,0 +1,118 @@
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: D:\school\igorbegining\Bochkarev_alien_honey.exe,
+
+ВНЕЗАПНО: Целочисленное деление на ноль.
+
+#1: Исключение EXCEPTION_INT_DIVIDE_BY_ZERO (0xC0000094) при выполнении кода по адресу 0x00435DAA в функции BeeFlyby() в файле D:/school/igorbegining/Bochkarev_alien_honey.cpp на строке 146 в модуле D:\school\igorbegining\Bochkarev_alien_honey.exe. Спасибо _txUnhandledExceptionFilter(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2021-05-09 22:50:05 +0400], Instance: 0x00510304 (32-bit), Flags: CMdRe0, Thread: 0x1E74 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00435DAA in D:\school\igorbegining\Bochkarev_alien_honey.exe: BeeFlyby() at D:/school/igorbegining/Bochkarev_alien_honey.cpp (146):
+
+    144: 
+    145:          BeeDraw (750 + t / 2, 500,                  1.5);
+=>  146:          BeeDraw (750 + t / 2, 450 + 50 / (t%8),     1.5);
+    147:          BeeDraw (750 + t / 2, 470 - 50 / (t%6),     1.5);
+    148:          BeeDraw (750 + t / 2, 550 + 70 / ((t/2)%8), 1.5);
+
+# 1 0x00434EF9 in D:\school\igorbegining\Bochkarev_alien_honey.exe: main() at D:/school/igorbegining/Bochkarev_alien_honey.cpp (22):
+
+     20:     Village ();
+     21:     HeightGarden ();
+=>   22:     BeeFlyby ();
+     23: 
+     24:     return 0;
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in void BeeDraw(int, int, double) at D:\school\igorbegining\LFioninaLib.h (204):
+
+    202:     txSetColor     (RGB (50, 50, 0),2);
+    203:     txEllipse (x - 105*size, y, x, y +  6*size);
+=>  204:     txEllipse (x + 15*size, y, x, y +  6*size);
+    205:     }
+    206: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2021-05-09 22:50:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	D:\school\igorbegining\TX\TXLib.h
+Compiled:	May 13 2021 12:19:38, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	May 13 2021 12:19:43
+
+Run file:	D:\school\igorbegining\Bochkarev_alien_honey.exe
+Directory:	D:\school\igorbegining
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\school\igorbegining\Bochkarev_alien_honey.exe,
+
+ВНЕЗАПНО: Целочисленное деление на ноль.
+
+#1: Исключение EXCEPTION_INT_DIVIDE_BY_ZERO (0xC0000094) при выполнении кода по адресу 0x00435DAA в функции BeeFlyby() в файле D:/school/igorbegining/Bochkarev_alien_honey.cpp на строке 146 в модуле D:\school\igorbegining\Bochkarev_alien_honey.exe. Спасибо _txUnhandledExceptionFilter(), что сообщил. Люблю его <3
+
+С помощью функции _set_se_translator() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 171, Date: 2021-05-09 22:50:05 +0400], Instance: 0x00510304 (32-bit), Flags: CMdRe0, Thread: 0x1E74 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00435DAA in D:\school\igorbegining\Bochkarev_alien_honey.exe: BeeFlyby() at D:/school/igorbegining/Bochkarev_alien_honey.cpp (146):
+
+    144: 
+    145:          BeeDraw (750 + t / 2, 500,                  1.5);
+=>  146:          BeeDraw (750 + t / 2, 450 + 50 / (t%8),     1.5);
+    147:          BeeDraw (750 + t / 2, 470 - 50 / (t%6),     1.5);
+    148:          BeeDraw (750 + t / 2, 550 + 70 / ((t/2)%8), 1.5);
+
+# 1 0x00434EF9 in D:\school\igorbegining\Bochkarev_alien_honey.exe: main() at D:/school/igorbegining/Bochkarev_alien_honey.cpp (22):
+
+     20:     Village ();
+     21:     HeightGarden ();
+=>   22:     BeeFlyby ();
+     23: 
+     24:     return 0;
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in void BeeDraw(int, int, double) at D:\school\igorbegining\LFioninaLib.h (204):
+
+    202:     txSetColor     (RGB (50, 50, 0),2);
+    203:     txEllipse (x - 105*size, y, x, y +  6*size);
+=>  204:     txEllipse (x + 15*size, y, x, y +  6*size);
+    205:     }
+    206: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2021-05-09 22:50:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	D:\school\igorbegining\TX\TXLib.h
+Compiled:	May 13 2021 12:19:38, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	May 13 2021 12:19:43
+
+Run file:	D:\school\igorbegining\Bochkarev_alien_honey.exe
+Directory:	D:\school\igorbegining
+
+--------------------------------------------------
