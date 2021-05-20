@@ -1,0 +1,101 @@
+\hypertarget{namespacebiven}{}\doxysection{Пространство имен biven}
+\label{namespacebiven}\index{biven@{biven}}
+\doxysubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacebiven_a184fb034fe90c63ba9a9a3fe08e4760d}\label{namespacebiven_a184fb034fe90c63ba9a9a3fe08e4760d}} 
+void \mbox{\hyperlink{namespacebiven_a184fb034fe90c63ba9a9a3fe08e4760d}{House\+Draw}} (int x, int y, double sizeX, double sizeY, double Gable\+Up, double GableX, double roof\+Right, double roof\+Left)
+\begin{DoxyCompactList}\small\item\em данная функция рисует самостийный домиик \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacebiven_aa2516f328c3c610c532dfadda0229844}{Tree\+Draw}} (int x, int y, double sizeX, double sizeY)
+\begin{DoxyCompactList}\small\item\em анная функция рисует дерево \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacebiven_ad2284306eb9e39237f8518f65e8343e8}\label{namespacebiven_ad2284306eb9e39237f8518f65e8343e8}} 
+void {\bfseries Sun\+Draw} (int x, int y, double size, double size\+Chet, double size\+NChet, double size\+Eyse, double Eye\+LeftX, double Eye\+RightX, double Eye\+Left\+Up, double Eye\+Right\+Up)
+\item 
+void \mbox{\hyperlink{namespacebiven_af8bc12f20f010be36ab7cdd73c543b72}{Boy\+Draw}} (int x, int y, double sizeX, double sizeY, int shovel\+Up, double Left\+KneeX, double Left\+KneeY, double Left\+FootX, double Left\+FootY, double Right\+KneeX, double Right\+KneeY, double Right\+FootX, double Right\+FootY)
+\item 
+\mbox{\Hypertarget{namespacebiven_a31d7b760e449a850157fa2a9600d8e04}\label{namespacebiven_a31d7b760e449a850157fa2a9600d8e04}} 
+void {\bfseries Star\+Ship} (int x, int y, double size\+Ship)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+\begin{DoxyNote}{Заметки}
+Библиотека начинающего программиста \mbox{\hyperlink{_biven_lib_8h_source}{Biven\+Lib.\+h}} это собрание персонажей анимации первого мультика-\/программы. в первой версии в библиотеку включены следующие функции-\/персонажи Boy\+Draw -\/ мужчина Sun\+Draw -\/ солнце Tree\+Draw -\/ дерево House\+Draw -\/ домик \} 
+\end{DoxyNote}
+
+
+\doxysubsection{Функции}
+\mbox{\Hypertarget{namespacebiven_af8bc12f20f010be36ab7cdd73c543b72}\label{namespacebiven_af8bc12f20f010be36ab7cdd73c543b72}} 
+\index{biven@{biven}!BoyDraw@{BoyDraw}}
+\index{BoyDraw@{BoyDraw}!biven@{biven}}
+\doxysubsubsection{\texorpdfstring{BoyDraw()}{BoyDraw()}}
+{\footnotesize\ttfamily void biven\+::\+Boy\+Draw (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{double}]{sizeX,  }\item[{double}]{sizeY,  }\item[{int}]{shovel\+Up,  }\item[{double}]{Left\+KneeX,  }\item[{double}]{Left\+KneeY,  }\item[{double}]{Left\+FootX,  }\item[{double}]{Left\+FootY,  }\item[{double}]{Right\+KneeX,  }\item[{double}]{Right\+KneeY,  }\item[{double}]{Right\+FootX,  }\item[{double}]{Right\+FootY }\end{DoxyParamCaption})}
+
+\{================================================================================================ рисуем мужчину, относительный центр координат находится в точке соприкосновения головы и туловища.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em x} & -\/ координата по горизонтальной оси точки отсчета мужчины, \\
+\hline
+{\em y} & -\/ координатa по оси y (направлена вниз), \\
+\hline
+{\em sizeX} & -\/ размер масштабирования по оси х, \\
+\hline
+{\em sizeY} & -\/ размер масштабирования по оси Y, \\
+\hline
+{\em shovel\+Up} & -\/ параметр отвечает за поднятие лопаты 1 -\/ лопата внизу (-\/1) лопата поднята вверх , \\
+\hline
+{\em Left\+KneeX} & -\/ параметр отвечает за расположение левого колена по оси Х, \\
+\hline
+{\em Left\+KneeY} & -\/ параметр отвечает за расположение левого колена по оси Y, \\
+\hline
+{\em Left\+FootX} & -\/ параметр отвечает за расположение левой стопы по оси Х \\
+\hline
+{\em Left\+FootY} & -\/ параметр отвечает за расположение левой стопы по оси Y\\
+\hline
+{\em Right\+KneeX} & -\/ параметр отвечает за расположение правого колена по оси Х, \\
+\hline
+{\em Right\+KneeY} & -\/ параметр отвечает за расположение правого колена по оси Y, \\
+\hline
+{\em Right\+FootX} & -\/ параметр отвечает за расположение правой стопы по оси Х \\
+\hline
+{\em Right\+FootY} & -\/ параметр отвечает за расположение правой стопы по оси Y\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Заметки}
+мужчина пока с прямыми руками, но планируются локти с возможностями копать лопатой. \begin{DoxyVerb}   Особенности движения ног при анимации:
+   Базовое движение - левое колено вверху, правое колено внизу и наооборот.
+   чтобы сделать еще фазу движения - когда ноги вместе - это когда надо показать человека стоящего,
+   необходимо сделать смещение фазы подъема колен на какую либо величину (подбирается индивидуально)
+   в предлагаемом примере величина смещения равна 2.
+   пример кода будет выглядеть следующим образом:
+   \code
+      void BoyDraw (int x, int y, double sizeX, double sizeY, int shovelUp,
+                   double LeftKneeX,  double LeftKneeY,  double LeftFootX,  double LeftFootY,
+                   double RightKneeX, double RightKneeY, double RightFootX, double RightFootY);
+
+   \endcode
+\end{DoxyVerb}
+ 
+\end{DoxyNote}
+\mbox{\Hypertarget{namespacebiven_aa2516f328c3c610c532dfadda0229844}\label{namespacebiven_aa2516f328c3c610c532dfadda0229844}} 
+\index{biven@{biven}!TreeDraw@{TreeDraw}}
+\index{TreeDraw@{TreeDraw}!biven@{biven}}
+\doxysubsubsection{\texorpdfstring{TreeDraw()}{TreeDraw()}}
+{\footnotesize\ttfamily void biven\+::\+Tree\+Draw (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{double}]{sizeX,  }\item[{double}]{sizeY }\end{DoxyParamCaption})}
+
+
+
+анная функция рисует дерево 
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em x} & -\/ \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & -\/ \\
+\hline
+\mbox{\texttt{ in}}  & {\em sizeX} & -\/ \\
+\hline
+\mbox{\texttt{ in}}  & {\em sizeY} & -\/ \\
+\hline
+\end{DoxyParams}

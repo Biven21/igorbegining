@@ -38,20 +38,20 @@ void StarShip  (int x, int y, double sizeShip);
 //!{================================================================================================
 //! рисуем мужчину, относительный центр координат находится в точке соприкосновения головы и туловища.
 //!
-//!@param x           x - координата по горизонтальной оси точки отсчета мужчины,
-//!@param y           y - координатa по оси y (направлена вниз),
-//!@param sizeX        - размер масштабирования по оси х,
-//!@param sizeY        - размер масштабирования по оси Y,
-//!@param shovelUp     - параметр отвечает за поднятие лопаты 1 - лопата внизу  (-1) лопата поднята вверх ,
-//!@param LeftKneeX    - параметр отвечает за расположение левого колена по оси Х,
-//!@param LeftKneeY    - параметр отвечает за расположение левого колена по оси Y,
-//!@param LeftFootX    - параметр отвечает за расположение левой стопы по оси Х
-//!@param LeftFootY    - параметр отвечает за расположение левой стопы по оси Y
-//!
-//!@param RightKneeX   - параметр отвечает за расположение правого колена по оси Х,
-//!@param RightKneeY   - параметр отвечает за расположение правого колена по оси Y,
-//!@param RightFootX   - параметр отвечает за расположение правой стопы по оси Х
-//!@param RightFootY   - параметр отвечает за расположение правой стопы по оси Y
+//!@param x           - координата по горизонтальной оси точки отсчета мужчины,
+//!@param y           - координатa по оси y (направлена вниз),
+//!@param sizeX       - размер масштабирования по оси х,
+//!@param sizeY       - размер масштабирования по оси Y,
+//!@param shovelUp    - параметр отвечает за поднятие лопаты 1 - лопата внизу  (-1) лопата поднята вверх ,
+//!@param LeftKneeX   - параметр отвечает за расположение левого колена по оси Х,
+//!@param LeftKneeY   - параметр отвечает за расположение левого колена по оси Y,
+//!@param LeftFootX   - параметр отвечает за расположение левой стопы по оси Х
+//!@param LeftFootY   - параметр отвечает за расположение левой стопы по оси Y
+//!                   
+//!@param RightKneeX  - параметр отвечает за расположение правого колена по оси Х,
+//!@param RightKneeY  - параметр отвечает за расположение правого колена по оси Y,
+//!@param RightFootX  - параметр отвечает за расположение правой стопы по оси Х
+//!@param RightFootY  - параметр отвечает за расположение правой стопы по оси Y
 //!
 //!@note  мужчина пока с прямыми руками, но планируются локти с возможностями копать лопатой.
 //!
@@ -62,11 +62,9 @@ void StarShip  (int x, int y, double sizeShip);
 //!       в предлагаемом примере величина смещения равна 2.
 //!       пример кода будет выглядеть следующим образом:
 //!       \code
-//!       BoyDraw ( 50 + t / 5, 600 - t / 4, 2, 2, 1,
-//!               ((t + 2) / 20) % 2 * 2,        ((t + 2) / 20) % 2 * 7,
-//!               ((t + 2) / 20) % 2,            ((t + 2) / 20) % 2 * 7,
-//!               ((t / 20) % 2 * (-1) + 1) * 2, ((t / 20) % 2 * (-1) + 1) * 7,
-//!               ((t / 20) % 2 * (-1) + 1),     ((t / 20) % 2 * (-1) + 1) * 7);
+//!          void BoyDraw (int x, int y, double sizeX, double sizeY, int shovelUp,
+//!                       double LeftKneeX,  double LeftKneeY,  double LeftFootX,  double LeftFootY,
+//!                       double RightKneeX, double RightKneeY, double RightFootX, double RightFootY);
 //!
 //!       \endcode
 //!
@@ -106,6 +104,14 @@ void BoyDraw (int x, int y, double sizeX, double sizeY, int shovelUp,
     txPolygon (shovel, 4);
     }
 
+/*!
+    \brief данная функция рисует самостийный домиик
+    
+    
+
+*/
+
+
 void HouseDraw (int x, int y, double sizeX, double sizeY, double GableUp, double GableX, double roofRight, double roofLeft)
     {
     txSetColor (TX_GREEN);
@@ -134,13 +140,23 @@ void HouseDraw (int x, int y, double sizeX, double sizeY, double GableUp, double
 
 //-----------------------------------------------------------------------------
 
+/*!
+    \brief анная функция рисует дерево
+    
+    \param [in] x - 
+    \param [in] y - 
+    \param 
+
+*/
+
+
 void TreeDraw (int x, int y, double sizeX, double sizeY)
     {
     txSetColor (TX_BROWN, 4);
     txLine   (x, y, x, y - 30 * sizeY);
 
     txSetColor (TX_BROWN, 2);
-    txLine   (x,           y -  8*sizeY, x +  9*sizeX, y - 20*sizeY);
+    txLine   (x,            y -  8*sizeY, x +  9*sizeX, y - 20*sizeY);
     txLine   (x +  9*sizeX, y - 20*sizeY, x + 18*sizeX, y - 23*sizeY);
     txLine   (x,            y - 13*sizeY, x -  9*sizeX, y - 20*sizeY);
     txLine   (x -  9*sizeX, y - 20*sizeY, x - 16*sizeX, y - 20*sizeY);
