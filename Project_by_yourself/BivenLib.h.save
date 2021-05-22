@@ -36,7 +36,7 @@ void BoyDraw   (int x, int y, double sizeX, double sizeY, int shovelUp,
 void StarShip  (int x, int y, double sizeShip);
 
 //!{================================================================================================
-//! рисуем мужчину, относительный центр координат находится в точке соприкосновения головы и туловища.
+//! \n рисуем мужчину, относительный центр координат находится в точке соприкосновения головы и туловища.
 //!
 //!@param x           - координата по горизонтальной оси точки отсчета мужчины,
 //!@param y           - координатa по оси y (направлена вниз),
@@ -106,14 +106,14 @@ void BoyDraw (int x, int y, double sizeX, double sizeY, int shovelUp,
 
 /*!
     \brief данная функция рисует самостийный домик
-    
-    \param [in] x - 
-    \param
 
+    \param [in] x - координата х точки отсчета (относительной системы координат)
+    \param [in] y - координата y точки отсчета (относительной системы координат)
+    \param [in] sizeX - множитель, определяющий размер домика
 
 
 */
-
+void HouseDraw (int x, int y, double sizeX, double sizeY, double GableUp, double GableX, double roofRight, double roofLeft);
 
 void HouseDraw (int x, int y, double sizeX, double sizeY, double GableUp, double GableX, double roofRight, double roofLeft)
     {

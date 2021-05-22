@@ -1,0 +1,140 @@
+.TH "biven" 3 "Сб 22 Май 2021" "My Project_help_Mult" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+biven
+.SH SYNOPSIS
+.br
+.PP
+.SS "Функции"
+
+.in +1c
+.ti -1c
+.RI "void \fBHouseDraw\fP (int x, int y, double sizeX, double sizeY, double GableUp, double GableX, double roofRight, double roofLeft)"
+.br
+.RI "данная функция рисует самостийный домик "
+.ti -1c
+.RI "void \fBTreeDraw\fP (int x, int y, double sizeX, double sizeY)"
+.br
+.RI "анная функция рисует дерево "
+.ti -1c
+.RI "void \fBSunDraw\fP (int x, int y, double size, double sizeChet, double sizeNChet, double sizeEyse, double EyeLeftX, double EyeRightX, double EyeLeftUp, double EyeRightUp)"
+.br
+.ti -1c
+.RI "void \fBBoyDraw\fP (int x, int y, double sizeX, double sizeY, int shovelUp, double LeftKneeX, double LeftKneeY, double LeftFootX, double LeftFootY, double RightKneeX, double RightKneeY, double RightFootX, double RightFootY)"
+.br
+.ti -1c
+.RI "void \fBStarShip\fP (int x, int y, double sizeShip)"
+.br
+.in -1c
+.SH "Подробное описание"
+.PP 
+
+.PP
+\fBЗаметки\fP
+.RS 4
+Библиотека начинающего программиста \fBBivenLib\&.h\fP это собрание персонажей анимации первого мультика-программы\&. в первой версии в библиотеку включены следующие функции-персонажи BoyDraw - мужчина SunDraw - солнце TreeDraw - дерево HouseDraw - домик } 
+.RE
+.PP
+
+.SH "Функции"
+.PP 
+.SS "void biven::BoyDraw (int x, int y, double sizeX, double sizeY, int shovelUp, double LeftKneeX, double LeftKneeY, double LeftFootX, double LeftFootY, double RightKneeX, double RightKneeY, double RightFootX, double RightFootY)"
+{================================================================================================ 
+.br
+ рисуем мужчину, относительный центр координат находится в точке соприкосновения головы и туловища\&.
+.PP
+\fBАргументы\fP
+.RS 4
+\fIx\fP - координата по горизонтальной оси точки отсчета мужчины, 
+.br
+\fIy\fP - координатa по оси y (направлена вниз), 
+.br
+\fIsizeX\fP - размер масштабирования по оси х, 
+.br
+\fIsizeY\fP - размер масштабирования по оси Y, 
+.br
+\fIshovelUp\fP - параметр отвечает за поднятие лопаты 1 - лопата внизу (-1) лопата поднята вверх , 
+.br
+\fILeftKneeX\fP - параметр отвечает за расположение левого колена по оси Х, 
+.br
+\fILeftKneeY\fP - параметр отвечает за расположение левого колена по оси Y, 
+.br
+\fILeftFootX\fP - параметр отвечает за расположение левой стопы по оси Х 
+.br
+\fILeftFootY\fP - параметр отвечает за расположение левой стопы по оси Y
+.br
+\fIRightKneeX\fP - параметр отвечает за расположение правого колена по оси Х, 
+.br
+\fIRightKneeY\fP - параметр отвечает за расположение правого колена по оси Y, 
+.br
+\fIRightFootX\fP - параметр отвечает за расположение правой стопы по оси Х 
+.br
+\fIRightFootY\fP - параметр отвечает за расположение правой стопы по оси Y
+.RE
+.PP
+\fBЗаметки\fP
+.RS 4
+мужчина пока с прямыми руками, но планируются локти с возможностями копать лопатой\&. 
+.PP
+.nf
+   Особенности движения ног при анимации:
+   Базовое движение - левое колено вверху, правое колено внизу и наооборот.
+   чтобы сделать еще фазу движения - когда ноги вместе - это когда надо показать человека стоящего,
+   необходимо сделать смещение фазы подъема колен на какую либо величину (подбирается индивидуально)
+   в предлагаемом примере величина смещения равна 2.
+   пример кода будет выглядеть следующим образом:
+   \code
+      void BoyDraw (int x, int y, double sizeX, double sizeY, int shovelUp,
+                   double LeftKneeX,  double LeftKneeY,  double LeftFootX,  double LeftFootY,
+                   double RightKneeX, double RightKneeY, double RightFootX, double RightFootY);
+
+   \endcode
+
+.fi
+.PP
+ 
+.RE
+.PP
+
+.PP
+См\&. определение в файле BivenLib\&.h строка 77
+.SS "void biven::HouseDraw (int x, int y, double sizeX, double sizeY, double GableUp, double GableX, double roofRight, double roofLeft)"
+
+.PP
+данная функция рисует самостийный домик 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIx\fP - координата х точки отсчета (относительной системы координат) 
+.br
+\fIy\fP - координата y точки отсчета (относительной системы координат) 
+.br
+\fIsizeX\fP - множитель, определяющий размер домика 
+.RE
+.PP
+
+.PP
+См\&. определение в файле BivenLib\&.h строка 118
+.SS "void biven::TreeDraw (int x, int y, double sizeX, double sizeY)"
+
+.PP
+анная функция рисует дерево 
+.PP
+\fBАргументы\fP
+.RS 4
+\fIx\fP - 
+.br
+\fIy\fP - 
+.br
+\fIsizeX\fP - 
+.br
+\fIsizeY\fP - 
+.RE
+.PP
+
+.PP
+См\&. определение в файле BivenLib\&.h строка 157
+.SH "Автор"
+.PP 
+Автоматически создано Doxygen для My Project_help_Mult из исходного текста\&.
