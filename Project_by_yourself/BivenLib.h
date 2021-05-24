@@ -110,6 +110,7 @@ void BoyDraw (int x, int y, double sizeX, double sizeY, int shovelUp,
     txPolygon (shovel, 4);
     }
 
+//-----------------------------------------------------------------------------
 /*!
     @ingroup creation
 
@@ -131,6 +132,7 @@ void BoyDraw (int x, int y, double sizeX, double sizeY, int shovelUp,
 
     \endcode
 */
+//-----------------------------------------------------------------------------
 
 void HouseDraw (int x, int y, double sizeX, double sizeY, double GableUp, double GableX, double roofRight, double roofLeft)
     {
@@ -159,7 +161,7 @@ void HouseDraw (int x, int y, double sizeX, double sizeY, double GableUp, double
     }
 
 //-----------------------------------------------------------------------------
-
+//=============================================================================
 /*!
  @ingroup creation
 
@@ -178,7 +180,7 @@ void HouseDraw (int x, int y, double sizeX, double sizeY, double GableUp, double
 
     \endcode
 */
-
+//=============================================================================
 void TreeDraw (int x, int y, double sizeX, double sizeY)
     {
     txSetColor (TX_BROWN, 4);
@@ -204,7 +206,7 @@ void TreeDraw (int x, int y, double sizeX, double sizeY)
     }
 
 //-----------------------------------------------------------------------------
-
+//=============================================================================
 /*!
  @ingroup creation
 
@@ -230,6 +232,7 @@ void TreeDraw (int x, int y, double sizeX, double sizeY)
    \endcode
 
 */
+//===================================================================================
 
 void SunDraw (int x, int y, double size, double sizeChet, double sizeNChet, double sizeEyse,
               double EyeLeftX, double EyeRightX, double EyeLeftUp, double EyeRightUp )
@@ -264,7 +267,7 @@ void SunDraw (int x, int y, double size, double sizeChet, double sizeNChet, doub
     }
 
 //-----------------------------------------------------------------------------
-
+//=============================================================================
 /*!
    @ingroup creation
 
@@ -282,6 +285,8 @@ void SunDraw (int x, int y, double size, double sizeChet, double sizeNChet, doub
 
    \endcode
 */
+//==============================================================================
+
     void StarShip (int x, int y, double sizeShip)
     {
     txSetColor (TX_BLACK, 4);
