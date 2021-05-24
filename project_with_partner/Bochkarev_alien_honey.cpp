@@ -1,7 +1,7 @@
 
 #include "TXLib.h"
-#include "BivenLib.h"
-#include "LFioninaSDK\LFioninaLib.h"
+#include "D:\school\КПК\Репозиторий\igorbegining\Project_by_yourself\BivenLib.h"
+#include "..\..\KPK_course\LFioninaSDK\LFioninaLib.h"
 
 using namespace biven;
 

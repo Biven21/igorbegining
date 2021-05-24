@@ -25,13 +25,7 @@
 var NAVTREE =
 [
   [ "My Project_help_Mult", "index.html", [
-    [ "Пространства имен", "namespaces.html", [
-      [ "Пространства имен", "namespaces.html", "namespaces_dup" ],
-      [ "Члены пространств имен", "namespacemembers.html", [
-        [ "Указатель", "namespacemembers.html", null ],
-        [ "Функции", "namespacemembers_func.html", null ]
-      ] ]
-    ] ],
+    [ "Группы", "modules.html", "modules" ],
     [ "Файлы", "files.html", [
       [ "Файлы", "files.html", "files_dup" ]
     ] ]

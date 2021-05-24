@@ -17,6 +17,9 @@
 //!       SunDraw -   солнце
 //!       TreeDraw -  дерево
 //!       HouseDraw - домик
+//!
+//!@defgroup character - персонажи одушевленные
+//!@defgroup creation  - создания рукотворные и природные
 //!}
 //==================================================================
 
@@ -36,6 +39,8 @@ void BoyDraw   (int x, int y, double sizeX, double sizeY, int shovelUp,
 void StarShip  (int x, int y, double sizeShip);
 
 //!{================================================================================================
+//!
+//!@ingroup character
 //! \n рисуем мужчину, относительный центр координат находится в точке соприкосновения головы и туловища.
 //!
 //!@param x           - координата по горизонтальной оси точки отсчета мужчины,
@@ -61,6 +66,7 @@ void StarShip  (int x, int y, double sizeShip);
 //!       необходимо сделать смещение фазы подъема колен на какую либо величину (подбирается индивидуально)
 //!       в предлагаемом примере величина смещения равна 2.
 //!       пример кода будет выглядеть следующим образом:
+//!
 //!       \code
 //!          void BoyDraw (int x, int y, double sizeX, double sizeY, int shovelUp,
 //!                       double LeftKneeX,  double LeftKneeY,  double LeftFootX,  double LeftFootY,
@@ -105,15 +111,26 @@ void BoyDraw (int x, int y, double sizeX, double sizeY, int shovelUp,
     }
 
 /*!
+    @ingroup creation
+
     \brief данная функция рисует самостийный домик
 
     \param [in] x - координата х точки отсчета (относительной системы координат)
     \param [in] y - координата y точки отсчета (относительной системы координат)
-    \param [in] sizeX - множитель, определяющий размер домика
+    \param [in] sizeX - множитель, определяющий размер домика в оси абсцис (х)
+    \param [in] sizeY - множитель, определяющий размер домика в оси ординат (y)
+    \param [in] Gableup - высота конька крыши (крыша двухскатная)
+    \param [in] GableX -  величина смещения конька крышы от центра дома влево или вправо
+    \param [in] roofRight - величина свеса крыши, правая сторона
+    \param [in] roofLeft -  величина свеса крыши, левая сторона
 
+    \code
 
+    void HouseDraw (int x, int y, double sizeX, double sizeY, double GableUp, double GableX,
+                    double roofRight, double roofLeft);
+
+    \endcode
 */
-void HouseDraw (int x, int y, double sizeX, double sizeY, double GableUp, double GableX, double roofRight, double roofLeft);
 
 void HouseDraw (int x, int y, double sizeX, double sizeY, double GableUp, double GableX, double roofRight, double roofLeft)
     {
@@ -144,15 +161,23 @@ void HouseDraw (int x, int y, double sizeX, double sizeY, double GableUp, double
 //-----------------------------------------------------------------------------
 
 /*!
-    \brief анная функция рисует дерево
+ @ingroup creation
 
-    \param [in] x -
-    \param [in] y -
-    \param [in] sizeX -
-    \param [in] sizeY -
+    \brief данная функция рисует дерево с шарообразной листвой на концах ветвей
 
+    размеры шаров листьев в явном виде не задаются, а зависят от общего размера дерева.
+
+    \param [in] x - размер по оси абсцис
+    \param [in] y - размер по оси ординат
+    \param [in] sizeX - масштаб в ширь
+    \param [in] sizeY - масштаб в высоту
+
+    \code
+
+    void TreeDraw (int x, int y, double sizeX, double sizeY);
+
+    \endcode
 */
-void TreeDraw (int x, int y, double sizeX, double sizeY);
 
 void TreeDraw (int x, int y, double sizeX, double sizeY)
     {
@@ -179,6 +204,32 @@ void TreeDraw (int x, int y, double sizeX, double sizeY)
     }
 
 //-----------------------------------------------------------------------------
+
+/*!
+ @ingroup creation
+
+ \brief рисуем солнышко, которое светит лучиками и улыбается
+
+ в планах научить солнышко говорить
+
+   \param [in] x - размер по оси абсцис
+   \param [in] y - размер по оси ординат
+   \param [in] size - масштаб общий
+   \param [in] sizeChet - размер четных лучиков
+   \param [in] sizeNChet -размер не четных лучиков
+   \param [in] sizeEyse - размер глаз
+   \param [in] EyeLeftX - расположение левого глаза от центральной оси
+   \param [in] EyeRightX - расположение правого злаза от цетнральной оси
+   \param [in] EyeLeftUp - расположение левого глаза по вертикали
+   \param [in] EyeRightUp - расположение правого глаза по вертикали
+
+   \code
+
+   void SunDraw (int x, int y, double size, double sizeChet, double sizeNChet, double sizeEyse,
+              double EyeLeftX, double EyeRightX, double EyeLeftUp, double EyeRightUp );
+   \endcode
+
+*/
 
 void SunDraw (int x, int y, double size, double sizeChet, double sizeNChet, double sizeEyse,
               double EyeLeftX, double EyeRightX, double EyeLeftUp, double EyeRightUp )
@@ -214,6 +265,23 @@ void SunDraw (int x, int y, double size, double sizeChet, double sizeNChet, doub
 
 //-----------------------------------------------------------------------------
 
+/*!
+   @ingroup creation
+
+   \brief космический корабль, прототип
+
+   нарисован полигонами  относительный центр координат на носу (вершине) корабля.
+
+   \param [in] x - абсциса вершины корабля
+   \param [in] y - ордината вершины корабля
+   \param [in] sizeShip - масштаб корабля
+
+   \code
+
+   void StarShip (int x, int y, double sizeShip);
+
+   \endcode
+*/
     void StarShip (int x, int y, double sizeShip)
     {
     txSetColor (TX_BLACK, 4);

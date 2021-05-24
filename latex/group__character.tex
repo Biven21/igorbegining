@@ -1,0 +1,77 @@
+\hypertarget{group__character}{}\doxysection{-\/ персонажи одушевленные}
+\label{group__character}\index{-\/ персонажи одушевленные@{-\/ персонажи одушевленные}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group__character_gaf8bc12f20f010be36ab7cdd73c543b72}{biven\+::\+Boy\+Draw}} (int x, int y, double sizeX, double sizeY, int shovel\+Up, double Left\+KneeX, double Left\+KneeY, double Left\+FootX, double Left\+FootY, double Right\+KneeX, double Right\+KneeY, double Right\+FootX, double Right\+FootY)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyNote}{Note}
+Библиотека начинающего программиста \mbox{\hyperlink{_biven_lib_8h}{Biven\+Lib.\+h}} это собрание персонажей анимации первого мультика-\/программы. в первой версии в библиотеку включены следующие функции-\/персонажи Boy\+Draw -\/ мужчина Sun\+Draw -\/ солнце Tree\+Draw -\/ дерево House\+Draw -\/ домик 
+\end{DoxyNote}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__character_gaf8bc12f20f010be36ab7cdd73c543b72}\label{group__character_gaf8bc12f20f010be36ab7cdd73c543b72}} 
+\index{-\/ персонажи одушевленные@{-\/ персонажи одушевленные}!BoyDraw@{BoyDraw}}
+\index{BoyDraw@{BoyDraw}!-\/ персонажи одушевленные@{-\/ персонажи одушевленные}}
+\doxysubsubsection{\texorpdfstring{BoyDraw()}{BoyDraw()}}
+{\footnotesize\ttfamily void biven\+::\+Boy\+Draw (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{double}]{sizeX,  }\item[{double}]{sizeY,  }\item[{int}]{shovel\+Up,  }\item[{double}]{Left\+KneeX,  }\item[{double}]{Left\+KneeY,  }\item[{double}]{Left\+FootX,  }\item[{double}]{Left\+FootY,  }\item[{double}]{Right\+KneeX,  }\item[{double}]{Right\+KneeY,  }\item[{double}]{Right\+FootX,  }\item[{double}]{Right\+FootY }\end{DoxyParamCaption})}
+
+\{================================================================================================
+
+~\newline
+ рисуем мужчину, относительный центр координат находится в точке соприкосновения головы и туловища.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & -\/ координата по горизонтальной оси точки отсчета мужчины, \\
+\hline
+{\em y} & -\/ координатa по оси y (направлена вниз), \\
+\hline
+{\em sizeX} & -\/ размер масштабирования по оси х, \\
+\hline
+{\em sizeY} & -\/ размер масштабирования по оси Y, \\
+\hline
+{\em shovel\+Up} & -\/ параметр отвечает за поднятие лопаты 1 -\/ лопата внизу (-\/1) лопата поднята вверх , \\
+\hline
+{\em Left\+KneeX} & -\/ параметр отвечает за расположение левого колена по оси Х, \\
+\hline
+{\em Left\+KneeY} & -\/ параметр отвечает за расположение левого колена по оси Y, \\
+\hline
+{\em Left\+FootX} & -\/ параметр отвечает за расположение левой стопы по оси Х \\
+\hline
+{\em Left\+FootY} & -\/ параметр отвечает за расположение левой стопы по оси Y\\
+\hline
+{\em Right\+KneeX} & -\/ параметр отвечает за расположение правого колена по оси Х, \\
+\hline
+{\em Right\+KneeY} & -\/ параметр отвечает за расположение правого колена по оси Y, \\
+\hline
+{\em Right\+FootX} & -\/ параметр отвечает за расположение правой стопы по оси Х \\
+\hline
+{\em Right\+FootY} & -\/ параметр отвечает за расположение правой стопы по оси Y\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+мужчина пока с прямыми руками, но планируются локти с возможностями копать лопатой. \begin{DoxyVerb}   Особенности движения ног при анимации:
+   Базовое движение - левое колено вверху, правое колено внизу и наооборот.
+   чтобы сделать еще фазу движения - когда ноги вместе - это когда надо показать человека стоящего,
+   необходимо сделать смещение фазы подъема колен на какую либо величину (подбирается индивидуально)
+   в предлагаемом примере величина смещения равна 2.
+   пример кода будет выглядеть следующим образом:
+
+   \code
+      void BoyDraw (int x, int y, double sizeX, double sizeY, int shovelUp,
+                   double LeftKneeX,  double LeftKneeY,  double LeftFootX,  double LeftFootY,
+                   double RightKneeX, double RightKneeY, double RightFootX, double RightFootY);
+
+   \endcode
+\end{DoxyVerb}
+ 
+\end{DoxyNote}
+
+
+Definition at line 83 of file Biven\+Lib.\+h.
+

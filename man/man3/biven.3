@@ -110,12 +110,17 @@ biven
 .br
 \fIy\fP - координата y точки отсчета (относительной системы координат) 
 .br
-\fIsizeX\fP - множитель, определяющий размер домика 
+\fIsizeX\fP - множитель, определяющий размер домика
 .RE
 .PP
-
 .PP
-См\&. определение в файле BivenLib\&.h строка 118
+.nf
+void HouseDraw (int x, int y, double sizeX, double sizeY, double GableUp, double GableX, double roofRight, double roofLeft);
+.fi
+.PP
+ 
+.PP
+См\&. определение в файле BivenLib\&.h строка 124
 .SS "void biven::TreeDraw (int x, int y, double sizeX, double sizeY)"
 
 .PP
@@ -134,7 +139,7 @@ biven
 .PP
 
 .PP
-См\&. определение в файле BivenLib\&.h строка 157
+См\&. определение в файле BivenLib\&.h строка 163
 .SH "Автор"
 .PP 
 Автоматически создано Doxygen для My Project_help_Mult из исходного текста\&.

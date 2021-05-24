@@ -23,11 +23,15 @@
  @licend  The above is the entire license notice for the JavaScript code in this file
 */
 var menudata={children:[
-{text:"Титульная страница",url:"index.html"},
-{text:"Пространства имен",url:"namespaces.html",children:[
-{text:"Пространства имен",url:"namespaces.html"},
-{text:"Члены пространств имен",url:"namespacemembers.html",children:[
-{text:"Указатель",url:"namespacemembers.html"},
-{text:"Функции",url:"namespacemembers_func.html"}]}]},
-{text:"Файлы",url:"files.html",children:[
-{text:"Файлы",url:"files.html"}]}]}
+{text:"Main Page",url:"index.html"},
+{text:"Modules",url:"modules.html"},
+{text:"Namespaces",url:"namespaces.html",children:[
+{text:"Namespace List",url:"namespaces.html"},
+{text:"Namespace Members",url:"namespacemembers.html",children:[
+{text:"All",url:"namespacemembers.html"},
+{text:"Functions",url:"namespacemembers_func.html"}]}]},
+{text:"Files",url:"files.html",children:[
+{text:"File List",url:"files.html"},
+{text:"File Members",url:"globals.html",children:[
+{text:"All",url:"globals.html"},
+{text:"Functions",url:"globals_func.html"}]}]}]}

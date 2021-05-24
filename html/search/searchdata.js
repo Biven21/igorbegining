@@ -1,21 +1,27 @@
 var indexSectionsWithContent =
 {
-  0: "bht",
+  0: "-abcdefghlmpstv",
   1: "b",
-  2: "bht"
+  2: "b",
+  3: "abcdefghlmpstv",
+  4: "-"
 };
 
 var indexSectionNames =
 {
   0: "all",
   1: "namespaces",
-  2: "functions"
+  2: "files",
+  3: "functions",
+  4: "groups"
 };
 
 var indexSectionLabels =
 {
-  0: "Указатель",
-  1: "Пространства имен",
-  2: "Функции"
+  0: "All",
+  1: "Namespaces",
+  2: "Files",
+  3: "Functions",
+  4: "Modules"
 };
 

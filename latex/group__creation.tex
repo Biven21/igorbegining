@@ -1,0 +1,165 @@
+\hypertarget{group__creation}{}\doxysection{-\/ создания рукотворные и природные}
+\label{group__creation}\index{-\/ создания рукотворные и природные@{-\/ создания рукотворные и природные}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group__creation_ga184fb034fe90c63ba9a9a3fe08e4760d}{biven\+::\+House\+Draw}} (int x, int y, double sizeX, double sizeY, double Gable\+Up, double GableX, double roof\+Right, double roof\+Left)
+\begin{DoxyCompactList}\small\item\em данная функция рисует самостийный домик \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__creation_gaa2516f328c3c610c532dfadda0229844}{biven\+::\+Tree\+Draw}} (int x, int y, double sizeX, double sizeY)
+\begin{DoxyCompactList}\small\item\em данная функция рисует дерево с шарообразной листвой на концах ветвей \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__creation_gad2284306eb9e39237f8518f65e8343e8}{biven\+::\+Sun\+Draw}} (int x, int y, double size, double size\+Chet, double size\+NChet, double size\+Eyse, double Eye\+LeftX, double Eye\+RightX, double Eye\+Left\+Up, double Eye\+Right\+Up)
+\begin{DoxyCompactList}\small\item\em рисуем солнышко, которое светит лучиками и улыбается \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__creation_ga31d7b760e449a850157fa2a9600d8e04}{biven\+::\+Star\+Ship}} (int x, int y, double size\+Ship)
+\begin{DoxyCompactList}\small\item\em космический корабль прототип \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\} 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__creation_ga184fb034fe90c63ba9a9a3fe08e4760d}\label{group__creation_ga184fb034fe90c63ba9a9a3fe08e4760d}} 
+\index{-\/ создания рукотворные и природные@{-\/ создания рукотворные и природные}!HouseDraw@{HouseDraw}}
+\index{HouseDraw@{HouseDraw}!-\/ создания рукотворные и природные@{-\/ создания рукотворные и природные}}
+\doxysubsubsection{\texorpdfstring{HouseDraw()}{HouseDraw()}}
+{\footnotesize\ttfamily void biven\+::\+House\+Draw (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{double}]{sizeX,  }\item[{double}]{sizeY,  }\item[{double}]{Gable\+Up,  }\item[{double}]{GableX,  }\item[{double}]{roof\+Right,  }\item[{double}]{roof\+Left }\end{DoxyParamCaption})}
+
+
+
+данная функция рисует самостийный домик 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em x} & -\/ координата х точки отсчета (относительной системы координат) \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & -\/ координата y точки отсчета (относительной системы координат) \\
+\hline
+\mbox{\texttt{ in}}  & {\em sizeX} & -\/ множитель, определяющий размер домика в оси абсцис (х) \\
+\hline
+\mbox{\texttt{ in}}  & {\em sizeY} & -\/ множитель, определяющий размер домика в оси ординат (y) \\
+\hline
+\mbox{\texttt{ in}}  & {\em Gableup} & -\/ высота конька крыши (крыша двухскатная) \\
+\hline
+\mbox{\texttt{ in}}  & {\em GableX} & -\/ величина смещения конька крышы от центра дома влево или вправо \\
+\hline
+\mbox{\texttt{ in}}  & {\em roof\+Right} & -\/ величина свеса крыши, правая сторона \\
+\hline
+\mbox{\texttt{ in}}  & {\em roof\+Left} & -\/ величина свеса крыши, левая сторона\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{group__creation_ga184fb034fe90c63ba9a9a3fe08e4760d}{HouseDraw}} (\textcolor{keywordtype}{int} x, \textcolor{keywordtype}{int} y, \textcolor{keywordtype}{double} sizeX, \textcolor{keywordtype}{double} sizeY, \textcolor{keywordtype}{double} GableUp, \textcolor{keywordtype}{double} GableX,}
+\DoxyCodeLine{                \textcolor{keywordtype}{double} roofRight, \textcolor{keywordtype}{double} roofLeft);}
+
+\end{DoxyCode}
+ 
+
+Definition at line 135 of file Biven\+Lib.\+h.
+
+\mbox{\Hypertarget{group__creation_ga31d7b760e449a850157fa2a9600d8e04}\label{group__creation_ga31d7b760e449a850157fa2a9600d8e04}} 
+\index{-\/ создания рукотворные и природные@{-\/ создания рукотворные и природные}!StarShip@{StarShip}}
+\index{StarShip@{StarShip}!-\/ создания рукотворные и природные@{-\/ создания рукотворные и природные}}
+\doxysubsubsection{\texorpdfstring{StarShip()}{StarShip()}}
+{\footnotesize\ttfamily void biven\+::\+Star\+Ship (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{double}]{size\+Ship }\end{DoxyParamCaption})}
+
+
+
+космический корабль прототип 
+
+нарисован полигонами относительный центр координат на носу (вершине) корабля.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em x} & -\/ абсциса вершины корабля \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & -\/ ордината вершины корабля \\
+\hline
+\mbox{\texttt{ in}}  & {\em size\+Ship} & -\/ масштаб корабля\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{group__creation_ga31d7b760e449a850157fa2a9600d8e04}{StarShip}} (\textcolor{keywordtype}{int} x, \textcolor{keywordtype}{int} y, \textcolor{keywordtype}{double} sizeShip)}
+
+\end{DoxyCode}
+ 
+
+Definition at line 285 of file Biven\+Lib.\+h.
+
+\mbox{\Hypertarget{group__creation_gad2284306eb9e39237f8518f65e8343e8}\label{group__creation_gad2284306eb9e39237f8518f65e8343e8}} 
+\index{-\/ создания рукотворные и природные@{-\/ создания рукотворные и природные}!SunDraw@{SunDraw}}
+\index{SunDraw@{SunDraw}!-\/ создания рукотворные и природные@{-\/ создания рукотворные и природные}}
+\doxysubsubsection{\texorpdfstring{SunDraw()}{SunDraw()}}
+{\footnotesize\ttfamily void biven\+::\+Sun\+Draw (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{double}]{size,  }\item[{double}]{size\+Chet,  }\item[{double}]{size\+NChet,  }\item[{double}]{size\+Eyse,  }\item[{double}]{Eye\+LeftX,  }\item[{double}]{Eye\+RightX,  }\item[{double}]{Eye\+Left\+Up,  }\item[{double}]{Eye\+Right\+Up }\end{DoxyParamCaption})}
+
+
+
+рисуем солнышко, которое светит лучиками и улыбается 
+
+в планах научить солнышко говорить
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em x} & -\/ размер по оси абсцис \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & -\/ размер по оси ординат \\
+\hline
+\mbox{\texttt{ in}}  & {\em size} & -\/ масштаб общий \\
+\hline
+\mbox{\texttt{ in}}  & {\em size\+Chet} & -\/ размер четных лучиков \\
+\hline
+\mbox{\texttt{ in}}  & {\em size\+NChet} & -\/размер не четных лучиков \\
+\hline
+\mbox{\texttt{ in}}  & {\em size\+Eyse} & -\/ размер глаз \\
+\hline
+\mbox{\texttt{ in}}  & {\em Eye\+LeftX} & -\/ расположение левого глаза от центральной оси \\
+\hline
+\mbox{\texttt{ in}}  & {\em Eye\+RightX} & -\/ расположение правого злаза от цетнральной оси \\
+\hline
+\mbox{\texttt{ in}}  & {\em Eye\+Left\+Up} & -\/ расположение левого глаза по вертикали \\
+\hline
+\mbox{\texttt{ in}}  & {\em Eye\+Right\+Up} & -\/ расположение правого глаза по вертикали\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{group__creation_gad2284306eb9e39237f8518f65e8343e8}{SunDraw}} (\textcolor{keywordtype}{int} x, \textcolor{keywordtype}{int} y, \textcolor{keywordtype}{double} size, \textcolor{keywordtype}{double} sizeChet, \textcolor{keywordtype}{double} sizeNChet, \textcolor{keywordtype}{double} sizeEyse,}
+\DoxyCodeLine{           \textcolor{keywordtype}{double} EyeLeftX, \textcolor{keywordtype}{double} EyeRightX, \textcolor{keywordtype}{double} EyeLeftUp, \textcolor{keywordtype}{double} EyeRightUp );}
+
+\end{DoxyCode}
+ 
+
+Definition at line 234 of file Biven\+Lib.\+h.
+
+\mbox{\Hypertarget{group__creation_gaa2516f328c3c610c532dfadda0229844}\label{group__creation_gaa2516f328c3c610c532dfadda0229844}} 
+\index{-\/ создания рукотворные и природные@{-\/ создания рукотворные и природные}!TreeDraw@{TreeDraw}}
+\index{TreeDraw@{TreeDraw}!-\/ создания рукотворные и природные@{-\/ создания рукотворные и природные}}
+\doxysubsubsection{\texorpdfstring{TreeDraw()}{TreeDraw()}}
+{\footnotesize\ttfamily void biven\+::\+Tree\+Draw (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{double}]{sizeX,  }\item[{double}]{sizeY }\end{DoxyParamCaption})}
+
+
+
+данная функция рисует дерево с шарообразной листвой на концах ветвей 
+
+размеры шаров листьев в явном виде не задаются, а зависят от общего размера дерева.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em x} & -\/ размер по оси абсцис \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & -\/ размер по оси ординат \\
+\hline
+\mbox{\texttt{ in}}  & {\em sizeX} & -\/ масштаб в ширь \\
+\hline
+\mbox{\texttt{ in}}  & {\em sizeY} & -\/ масштаб в высоту\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{group__creation_gaa2516f328c3c610c532dfadda0229844}{TreeDraw}} (\textcolor{keywordtype}{int} x, \textcolor{keywordtype}{int} y, \textcolor{keywordtype}{double} sizeX, \textcolor{keywordtype}{double} sizeY);}
+
+\end{DoxyCode}
+ 
+
+Definition at line 182 of file Biven\+Lib.\+h.
+

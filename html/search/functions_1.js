@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['housedraw_6',['HouseDraw',['../namespacebiven.html#a184fb034fe90c63ba9a9a3fe08e4760d',1,'biven']]]
+  ['boydraw_31',['BoyDraw',['../group__character.html#gaf8bc12f20f010be36ab7cdd73c543b72',1,'biven']]]
 ];

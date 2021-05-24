@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['biven_0',['biven',['../namespacebiven.html',1,'']]],
-  ['boydraw_1',['BoyDraw',['../namespacebiven.html#af8bc12f20f010be36ab7cdd73c543b72',1,'biven']]]
+  ['_2d_20персонажи_20одушевленные_0',['- персонажи одушевленные',['../group__character.html',1,'']]],
+  ['_2d_20создания_20рукотворные_20и_20природные_1',['- создания рукотворные и природные',['../group__creation.html',1,'']]]
 ];
