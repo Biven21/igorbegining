@@ -10,9 +10,9 @@
 //-----------------------------------------------------------------------------
 
 #include "TXLib.h"
-#include "BivenLib.h"
+#include "D:\school\КПК\Репозиторий\igorbegining\Project_by_yourself\BivenLib.h"
 
-using namespace Biven;
+//using namespace Biven;
 
 void girlDraw    (int x, int y, double sizeX, double sizeY, double wind);
 void FirDraw     (int x, int y, double sizeX, double sizeY, double Wind);
@@ -32,6 +32,7 @@ void Village ();
 void GardenStart ();
 void HeightGarden ();
 void HeightGardenEnd ();
+void TimeFwd (int t, int x);
 
 //-----------------------------------------------------------------------------
 
@@ -336,14 +337,25 @@ void Solstice ()
         txSetFillColor (TX_WHITE);
         Landscape ();
 
-        SunDraw (-  10 + t*4.5, 270 - t, 2, 1, 1, 1, 1, 1, 1, 1);
+        int x = -10 + t*4.5;
+
+        SunDraw (x,             270 - t, 2, 1, 1, 1, 1, 1, 1, 1);
         SunDraw (- 400 + t*4.5, 270 - t, 2, 1, 1, 1, 1, 1, 1, 1);
 
-        t ++;
+        TimeFwd (t, x);
         txSleep (10);
         }
     }
 
+//-----------------------------------------------------------------------------
+
+void TimeFwd (int t, int x)
+    {
+     int t = 0;
+     if (x > 800) t ++;
+     if (x > 1600) t += 2;
+
+    }
 //-----------------------------------------------------------------------------
 
 void ConstructionCamp ()
