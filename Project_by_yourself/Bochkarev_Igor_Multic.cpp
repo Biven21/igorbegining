@@ -343,7 +343,7 @@ void TimeFwd (int* t, int x)
 
     *t = *t + 1;
     if (x > 400)  (*t) ++;
-    if (x > 600)  *t  += 2;
+    if (x > 600)   *t  += 2;
 
     printf ("  TimeFwd (): x = %d and t = %d (v conce) \n", x, *t);
     }
